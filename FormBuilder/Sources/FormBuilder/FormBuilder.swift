@@ -14,14 +14,14 @@ public struct FormBuilder {
         print( "Hello, \(name) to home builder!")
     }
     
-    public func formView() -> some View {
+    public func formView(additionalViews: [AnyView]?) -> some View {
 
         let bundle = Bundle.module // Use Bundle.module to access package resources
             if let url = bundle.url(forResource: "FormJSON", withExtension: "json") {
                 do {
                     let data = try Data(contentsOf: url)
                     let formModel = FormModel(from: data)
-                    return AnyView(FormView(formModel: formModel))
+                    return AnyView(FormView(formModel: formModel, additionalViews: additionalViews ?? [] ))
                 } catch {
                     print("Failed to load data from JSON file: \(error)")
                     return AnyView(Text("Failed to load form data"))

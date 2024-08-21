@@ -13,7 +13,8 @@ struct ContentView: View {
     let builder = FormBuilder(name: "Adam")
 
     var body: some View {
-        builder.formView()
+        
+        builder.formView(additionalViews: [AnyView(Text("Adam Additional view"))])
     }
 }
 

@@ -10,7 +10,8 @@ import SwiftUI
 
 struct FormView: View {
     @ObservedObject var formModel: FormModel
-
+    let additionalViews: [AnyView]
+    
     var body: some View {
         Form {
             ForEach($formModel.fields) { $field in
@@ -42,8 +43,14 @@ struct FormView: View {
                         get: { field.value.value as? Bool ?? false },
                         set: { newValue in field.setNewValue(newValue: AnyCodable(newValue)) }
                     ), label: field.label, isEnabled: field.enabled ?? true)
+                                    
                 }
             }
+            
+            ForEach(0..<additionalViews.count, id: \.self) { index in
+                additionalViews[index]
+            }
+            
             Button("Submit") {
                 if formModel.validate() {
                     print("Form is valid, proceed with submission")

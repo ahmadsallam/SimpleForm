@@ -7,65 +7,173 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C0C08963-1450-45FC-81C5-D96282EB4CD3"
+            uuid = "261C3AAF-AA5F-4764-A5D2-ABD17DBBD602"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../FormBuilder/Sources/FormBuilder/FormBuilder.swift"
+            filePath = "../FormBuilder/Sources/FormBuilder/SimpleForm/FormView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "formView()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C0C08963-1450-45FC-81C5-D96282EB4CD3 - 8c9cfdda590efd58"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FormBuilder.FormBuilder.formView() -&gt; some"
-                  moduleName = "SimpleFormExample"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ahmad.adam/Documents/LP/SimpleForm/FormBuilder/Sources/FormBuilder/FormBuilder.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "300">
-               </Location>
-               <Location
-                  uuid = "C0C08963-1450-45FC-81C5-D96282EB4CD3 - 8c9cfdda590efd58"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FormBuilder.FormBuilder.formView() -&gt; some"
-                  moduleName = "SimpleFormExample"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ahmad.adam/Documents/LP/SimpleForm/FormBuilder/Sources/FormBuilder/FormBuilder.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "660">
-               </Location>
-            </Locations>
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A9C2F645-555F-4500-AF81-8E8D796C9522"
+            uuid = "5A71B901-F048-44BE-8832-96EF59822C7E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../FormBuilder/Sources/FormBuilder/FormBuilder.swift"
+            filePath = "../FormBuilder/Sources/FormBuilder/SimpleForm/FormView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "formView()"
-            landmarkType = "7">
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "460C0F8D-7774-442A-8E5A-97E17D8567B5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../FormBuilder/Sources/FormBuilder/SimpleForm/FormView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9121117-4772-4E3B-821C-19E0F5D830E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../FormBuilder/Sources/FormBuilder/SimpleForm/FormView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D48A7EE3-C516-4FF6-B40A-84E2BA14F124"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../FormBuilder/Sources/FormBuilder/SimpleForm/FormView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "D48A7EE3-C516-4FF6-B40A-84E2BA14F124 - b5b5563264947564"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.ForEach&lt;Swift.LazyMapSequence&lt;Swift.Range&lt;Swift.Int&gt;, (Swift.Int, Foundation.UUID)&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;FormBuilder.TextFieldView, FormBuilder.NumberFieldView&gt;, SwiftUI._ConditionalContent&lt;FormBuilder.DropdownFieldView, FormBuilder.CheckBoxView&gt;&gt;, SwiftUI.ForEach&lt;Swift.Range&lt;Swift.Int&gt;, Swift.Int, SwiftUI.AnyView&gt;&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0)&gt; in FormBuilder.FormView.body.getter : some"
+                  moduleName = "SimpleFormExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmad.adam/Documents/LP/SimpleForm/FormBuilder/Sources/FormBuilder/SimpleForm/FormView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "548">
+               </Location>
+               <Location
+                  uuid = "D48A7EE3-C516-4FF6-B40A-84E2BA14F124 - 4d887cad4775265a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 (SwiftUI.Binding&lt;FormBuilder.FormField&gt;) -&gt; SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;FormBuilder.TextFieldView, FormBuilder.NumberFieldView&gt;, SwiftUI._ConditionalContent&lt;FormBuilder.DropdownFieldView, FormBuilder.CheckBoxView&gt;&gt;, SwiftUI.ForEach&lt;Swift.Range&lt;Swift.Int&gt;, Swift.Int, SwiftUI.AnyView&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.ForEach&lt;Swift.LazyMapSequence&lt;Swift.Range&lt;Swift.Int&gt;, (Swift.Int, Foundation.UUID)&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;FormBuilder.TextFieldView, FormBuilder.NumberFieldView&gt;, SwiftUI._ConditionalContent&lt;FormBuilder.DropdownFieldView, FormBuilder.CheckBoxView&gt;&gt;, SwiftUI.ForEach&lt;Swift.Range&lt;Swift.Int&gt;, Swift.Int, SwiftUI.AnyView&gt;&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0)&gt; in FormBuilder.FormView.body.getter : some"
+                  moduleName = "SimpleFormExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmad.adam/Documents/LP/SimpleForm/FormBuilder/Sources/FormBuilder/SimpleForm/FormView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "D48A7EE3-C516-4FF6-B40A-84E2BA14F124 - 97cc377bcf27467c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SwiftUI.Binding&lt;FormBuilder.FormField&gt;) -&gt; SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;FormBuilder.TextFieldView, FormBuilder.NumberFieldView&gt;, SwiftUI._ConditionalContent&lt;FormBuilder.DropdownFieldView, FormBuilder.CheckBoxView&gt;&gt;, SwiftUI.ForEach&lt;Swift.Range&lt;Swift.Int&gt;, Swift.Int, SwiftUI.AnyView&gt;&gt; in implicit closure #1 (SwiftUI.Binding&lt;FormBuilder.FormField&gt;) -&gt; SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;FormBuilder.TextFieldView, FormBuilder.NumberFieldView&gt;, SwiftUI._ConditionalContent&lt;FormBuilder.DropdownFieldView, FormBuilder.CheckBoxView&gt;&gt;, SwiftUI.ForEach&lt;Swift.Range&lt;Swift.Int&gt;, Swift.Int, SwiftUI.AnyView&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.ForEach&lt;Swift.LazyMapSequence&lt;Swift.Range&lt;Swift.Int&gt;, (Swift.Int, Foundation.UUID)&gt;, Foundation.UUID, SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;FormBuilder.TextFieldView, FormBuilder.NumberFieldView&gt;, SwiftUI._ConditionalContent&lt;FormBuilder.DropdownFieldView, FormBuilder.CheckBoxView&gt;&gt;, SwiftUI.ForEach&lt;Swift.Range&lt;Swift.Int&gt;, Swift.Int, SwiftUI.AnyView&gt;&gt;&gt;, &lt;&lt;opaque return type of SwiftUI.View.cornerRadius(_: CoreGraphics.CGFloat, antialiased: Swift.Bool) -&gt; some&gt;&gt;.0)&gt; in FormBuilder.FormView.body.getter : some"
+                  moduleName = "SimpleFormExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmad.adam/Documents/LP/SimpleForm/FormBuilder/Sources/FormBuilder/SimpleForm/FormView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "876">
+               </Location>
+               <Location
+                  uuid = "D48A7EE3-C516-4FF6-B40A-84E2BA14F124 - 85d9fdb101e1216f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper init from projected value of $field : SwiftUI.Binding&lt;FormBuilder.FormField&gt;"
+                  moduleName = "SimpleFormExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmad.adam/Documents/LP/SimpleForm/FormBuilder/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "D48A7EE3-C516-4FF6-B40A-84E2BA14F124 - 538c0d83a4e2b3fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "field.getter : FormBuilder.FormField"
+                  moduleName = "SimpleFormExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmad.adam/Documents/LP/SimpleForm/FormBuilder/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "D48A7EE3-C516-4FF6-B40A-84E2BA14F124 - 2807622cb0414f09"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "field.setter : FormBuilder.FormField"
+                  moduleName = "SimpleFormExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmad.adam/Documents/LP/SimpleForm/FormBuilder/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
