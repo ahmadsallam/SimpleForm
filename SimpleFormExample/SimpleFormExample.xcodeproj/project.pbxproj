@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		474A17E32C760910005CE676 /* SimpleFormExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17E22C760910005CE676 /* SimpleFormExampleTests.swift */; };
 		474A17ED2C760910005CE676 /* SimpleFormExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17EC2C760910005CE676 /* SimpleFormExampleUITests.swift */; };
 		474A17EF2C760910005CE676 /* SimpleFormExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17EE2C760910005CE676 /* SimpleFormExampleUITestsLaunchTests.swift */; };
+		474A17FD2C76092E005CE676 /* FormBuilder in Frameworks */ = {isa = PBXBuildFile; productRef = 474A17FC2C76092E005CE676 /* FormBuilder */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				474A17FD2C76092E005CE676 /* FormBuilder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = SimpleFormExample;
+			packageProductDependencies = (
+				474A17FC2C76092E005CE676 /* FormBuilder */,
+			);
 			productName = SimpleFormExample;
 			productReference = 474A17CE2C76090E005CE676 /* SimpleFormExample.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = 474A17C52C76090E005CE676;
+			packageReferences = (
+				474A17FB2C76092E005CE676 /* XCLocalSwiftPackageReference "../FormBuilder" */,
+			);
 			productRefGroup = 474A17CF2C76090E005CE676 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -588,6 +596,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		474A17FB2C76092E005CE676 /* XCLocalSwiftPackageReference "../FormBuilder" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../FormBuilder;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		474A17FC2C76092E005CE676 /* FormBuilder */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FormBuilder;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 474A17C62C76090E005CE676 /* Project object */;
 }

@@ -6,19 +6,18 @@
 //
 
 import SwiftUI
-
-@available(iOS 14.0, *)
-@main
-struct formBuilderApp: App {
-    var body: some Scene {
-        WindowGroup {
-            if let url = Bundle.main.url(forResource: "FormJSON", withExtension: "json"),
-               let data = try? Data(contentsOf: url) {
-                let formModel = FormModel(from: data)
-                FormView(formModel: formModel)
-            } else {
-                Text("Failed to load form")
-            }
-        }
-    }
-}
+//
+//@available(iOS 14.0, *)
+//struct formBuilderApp: App {
+//    var body: some Scene {
+//        WindowGroup {
+//            if let url = Bundle.main.url(forResource: "FormJSON", withExtension: "json"),
+//               let data = try? Data(contentsOf: url) {
+//                let formModel = FormModel(from: data)
+//                FormView(formModel: formModel)
+//            } else {
+//                Text("Failed to load form")
+//            }
+//        }
+//    }
+//}

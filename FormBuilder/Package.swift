@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "FormBuilder",
     platforms: [
-        .iOS(.v13) // Add this line to specify iOS 13 as the minimum target
+        .iOS(.v14) // Add this line to specify iOS 13 as the minimum target
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
@@ -18,7 +18,12 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "FormBuilder"),
+            name: "FormBuilder",
+            dependencies: [],
+            resources: [
+                .process("Resources/FormJSON.json")
+            ]
+        ),
        
     ]
 )

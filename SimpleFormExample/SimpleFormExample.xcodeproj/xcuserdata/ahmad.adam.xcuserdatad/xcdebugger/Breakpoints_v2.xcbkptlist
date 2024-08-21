@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B798ED04-8443-48CA-90AD-58184EDD6733"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C0C08963-1450-45FC-81C5-D96282EB4CD3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../FormBuilder/Sources/FormBuilder/FormBuilder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "formView()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C0C08963-1450-45FC-81C5-D96282EB4CD3 - 8c9cfdda590efd58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FormBuilder.FormBuilder.formView() -&gt; some"
+                  moduleName = "SimpleFormExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmad.adam/Documents/LP/SimpleForm/FormBuilder/Sources/FormBuilder/FormBuilder.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "300">
+               </Location>
+               <Location
+                  uuid = "C0C08963-1450-45FC-81C5-D96282EB4CD3 - 8c9cfdda590efd58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FormBuilder.FormBuilder.formView() -&gt; some"
+                  moduleName = "SimpleFormExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahmad.adam/Documents/LP/SimpleForm/FormBuilder/Sources/FormBuilder/FormBuilder.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "660">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A9C2F645-555F-4500-AF81-8E8D796C9522"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../FormBuilder/Sources/FormBuilder/FormBuilder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "formView()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

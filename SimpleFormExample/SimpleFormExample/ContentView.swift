@@ -6,16 +6,14 @@
 //
 
 import SwiftUI
+import FormBuilder
 
 struct ContentView: View {
+    
+    let builder = FormBuilder(name: "Adam")
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        builder.formView()
     }
 }
 
