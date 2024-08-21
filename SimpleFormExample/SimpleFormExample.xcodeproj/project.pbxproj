@@ -7,61 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		474A17782C75FB96005CE676 /* BuildFormExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17772C75FB96005CE676 /* BuildFormExampleApp.swift */; };
-		474A177A2C75FB96005CE676 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17792C75FB96005CE676 /* ContentView.swift */; };
-		474A177C2C75FB98005CE676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474A177B2C75FB98005CE676 /* Assets.xcassets */; };
-		474A177F2C75FB98005CE676 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474A177E2C75FB98005CE676 /* Preview Assets.xcassets */; };
-		474A17892C75FB98005CE676 /* BuildFormExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17882C75FB98005CE676 /* BuildFormExampleTests.swift */; };
-		474A17932C75FB98005CE676 /* BuildFormExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17922C75FB98005CE676 /* BuildFormExampleUITests.swift */; };
-		474A17952C75FB98005CE676 /* BuildFormExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17942C75FB98005CE676 /* BuildFormExampleUITestsLaunchTests.swift */; };
+		474A17D22C76090E005CE676 /* SimpleFormExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17D12C76090E005CE676 /* SimpleFormExampleApp.swift */; };
+		474A17D42C76090E005CE676 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17D32C76090E005CE676 /* ContentView.swift */; };
+		474A17D62C760910005CE676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474A17D52C760910005CE676 /* Assets.xcassets */; };
+		474A17D92C760910005CE676 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474A17D82C760910005CE676 /* Preview Assets.xcassets */; };
+		474A17E32C760910005CE676 /* SimpleFormExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17E22C760910005CE676 /* SimpleFormExampleTests.swift */; };
+		474A17ED2C760910005CE676 /* SimpleFormExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17EC2C760910005CE676 /* SimpleFormExampleUITests.swift */; };
+		474A17EF2C760910005CE676 /* SimpleFormExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17EE2C760910005CE676 /* SimpleFormExampleUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		474A17852C75FB98005CE676 /* PBXContainerItemProxy */ = {
+		474A17DF2C760910005CE676 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 474A176C2C75FB96005CE676 /* Project object */;
+			containerPortal = 474A17C62C76090E005CE676 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 474A17732C75FB96005CE676;
-			remoteInfo = BuildFormExample;
+			remoteGlobalIDString = 474A17CD2C76090E005CE676;
+			remoteInfo = SimpleFormExample;
 		};
-		474A178F2C75FB98005CE676 /* PBXContainerItemProxy */ = {
+		474A17E92C760910005CE676 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 474A176C2C75FB96005CE676 /* Project object */;
+			containerPortal = 474A17C62C76090E005CE676 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 474A17732C75FB96005CE676;
-			remoteInfo = BuildFormExample;
+			remoteGlobalIDString = 474A17CD2C76090E005CE676;
+			remoteInfo = SimpleFormExample;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		474A17742C75FB96005CE676 /* BuildFormExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildFormExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		474A17772C75FB96005CE676 /* BuildFormExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildFormExampleApp.swift; sourceTree = "<group>"; };
-		474A17792C75FB96005CE676 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		474A177B2C75FB98005CE676 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		474A177E2C75FB98005CE676 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		474A17842C75FB98005CE676 /* BuildFormExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuildFormExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		474A17882C75FB98005CE676 /* BuildFormExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildFormExampleTests.swift; sourceTree = "<group>"; };
-		474A178E2C75FB98005CE676 /* BuildFormExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuildFormExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		474A17922C75FB98005CE676 /* BuildFormExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildFormExampleUITests.swift; sourceTree = "<group>"; };
-		474A17942C75FB98005CE676 /* BuildFormExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildFormExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		474A17CE2C76090E005CE676 /* SimpleFormExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleFormExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		474A17D12C76090E005CE676 /* SimpleFormExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleFormExampleApp.swift; sourceTree = "<group>"; };
+		474A17D32C76090E005CE676 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		474A17D52C760910005CE676 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		474A17D82C760910005CE676 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		474A17DE2C760910005CE676 /* SimpleFormExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleFormExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		474A17E22C760910005CE676 /* SimpleFormExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleFormExampleTests.swift; sourceTree = "<group>"; };
+		474A17E82C760910005CE676 /* SimpleFormExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleFormExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		474A17EC2C760910005CE676 /* SimpleFormExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleFormExampleUITests.swift; sourceTree = "<group>"; };
+		474A17EE2C760910005CE676 /* SimpleFormExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleFormExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		474A17712C75FB96005CE676 /* Frameworks */ = {
+		474A17CB2C76090E005CE676 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		474A17812C75FB98005CE676 /* Frameworks */ = {
+		474A17DB2C760910005CE676 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		474A178B2C75FB98005CE676 /* Frameworks */ = {
+		474A17E52C760910005CE676 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,142 +71,142 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		474A176B2C75FB96005CE676 = {
+		474A17C52C76090E005CE676 = {
 			isa = PBXGroup;
 			children = (
-				474A17762C75FB96005CE676 /* BuildFormExample */,
-				474A17872C75FB98005CE676 /* BuildFormExampleTests */,
-				474A17912C75FB98005CE676 /* BuildFormExampleUITests */,
-				474A17752C75FB96005CE676 /* Products */,
+				474A17D02C76090E005CE676 /* SimpleFormExample */,
+				474A17E12C760910005CE676 /* SimpleFormExampleTests */,
+				474A17EB2C760910005CE676 /* SimpleFormExampleUITests */,
+				474A17CF2C76090E005CE676 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		474A17752C75FB96005CE676 /* Products */ = {
+		474A17CF2C76090E005CE676 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				474A17742C75FB96005CE676 /* BuildFormExample.app */,
-				474A17842C75FB98005CE676 /* BuildFormExampleTests.xctest */,
-				474A178E2C75FB98005CE676 /* BuildFormExampleUITests.xctest */,
+				474A17CE2C76090E005CE676 /* SimpleFormExample.app */,
+				474A17DE2C760910005CE676 /* SimpleFormExampleTests.xctest */,
+				474A17E82C760910005CE676 /* SimpleFormExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		474A17762C75FB96005CE676 /* BuildFormExample */ = {
+		474A17D02C76090E005CE676 /* SimpleFormExample */ = {
 			isa = PBXGroup;
 			children = (
-				474A17772C75FB96005CE676 /* BuildFormExampleApp.swift */,
-				474A17792C75FB96005CE676 /* ContentView.swift */,
-				474A177B2C75FB98005CE676 /* Assets.xcassets */,
-				474A177D2C75FB98005CE676 /* Preview Content */,
+				474A17D12C76090E005CE676 /* SimpleFormExampleApp.swift */,
+				474A17D32C76090E005CE676 /* ContentView.swift */,
+				474A17D52C760910005CE676 /* Assets.xcassets */,
+				474A17D72C760910005CE676 /* Preview Content */,
 			);
-			path = BuildFormExample;
+			path = SimpleFormExample;
 			sourceTree = "<group>";
 		};
-		474A177D2C75FB98005CE676 /* Preview Content */ = {
+		474A17D72C760910005CE676 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				474A177E2C75FB98005CE676 /* Preview Assets.xcassets */,
+				474A17D82C760910005CE676 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		474A17872C75FB98005CE676 /* BuildFormExampleTests */ = {
+		474A17E12C760910005CE676 /* SimpleFormExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				474A17882C75FB98005CE676 /* BuildFormExampleTests.swift */,
+				474A17E22C760910005CE676 /* SimpleFormExampleTests.swift */,
 			);
-			path = BuildFormExampleTests;
+			path = SimpleFormExampleTests;
 			sourceTree = "<group>";
 		};
-		474A17912C75FB98005CE676 /* BuildFormExampleUITests */ = {
+		474A17EB2C760910005CE676 /* SimpleFormExampleUITests */ = {
 			isa = PBXGroup;
 			children = (
-				474A17922C75FB98005CE676 /* BuildFormExampleUITests.swift */,
-				474A17942C75FB98005CE676 /* BuildFormExampleUITestsLaunchTests.swift */,
+				474A17EC2C760910005CE676 /* SimpleFormExampleUITests.swift */,
+				474A17EE2C760910005CE676 /* SimpleFormExampleUITestsLaunchTests.swift */,
 			);
-			path = BuildFormExampleUITests;
+			path = SimpleFormExampleUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		474A17732C75FB96005CE676 /* BuildFormExample */ = {
+		474A17CD2C76090E005CE676 /* SimpleFormExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 474A17982C75FB98005CE676 /* Build configuration list for PBXNativeTarget "BuildFormExample" */;
+			buildConfigurationList = 474A17F22C760910005CE676 /* Build configuration list for PBXNativeTarget "SimpleFormExample" */;
 			buildPhases = (
-				474A17702C75FB96005CE676 /* Sources */,
-				474A17712C75FB96005CE676 /* Frameworks */,
-				474A17722C75FB96005CE676 /* Resources */,
+				474A17CA2C76090E005CE676 /* Sources */,
+				474A17CB2C76090E005CE676 /* Frameworks */,
+				474A17CC2C76090E005CE676 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BuildFormExample;
-			productName = BuildFormExample;
-			productReference = 474A17742C75FB96005CE676 /* BuildFormExample.app */;
+			name = SimpleFormExample;
+			productName = SimpleFormExample;
+			productReference = 474A17CE2C76090E005CE676 /* SimpleFormExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		474A17832C75FB98005CE676 /* BuildFormExampleTests */ = {
+		474A17DD2C760910005CE676 /* SimpleFormExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 474A179B2C75FB98005CE676 /* Build configuration list for PBXNativeTarget "BuildFormExampleTests" */;
+			buildConfigurationList = 474A17F52C760910005CE676 /* Build configuration list for PBXNativeTarget "SimpleFormExampleTests" */;
 			buildPhases = (
-				474A17802C75FB98005CE676 /* Sources */,
-				474A17812C75FB98005CE676 /* Frameworks */,
-				474A17822C75FB98005CE676 /* Resources */,
+				474A17DA2C760910005CE676 /* Sources */,
+				474A17DB2C760910005CE676 /* Frameworks */,
+				474A17DC2C760910005CE676 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				474A17862C75FB98005CE676 /* PBXTargetDependency */,
+				474A17E02C760910005CE676 /* PBXTargetDependency */,
 			);
-			name = BuildFormExampleTests;
-			productName = BuildFormExampleTests;
-			productReference = 474A17842C75FB98005CE676 /* BuildFormExampleTests.xctest */;
+			name = SimpleFormExampleTests;
+			productName = SimpleFormExampleTests;
+			productReference = 474A17DE2C760910005CE676 /* SimpleFormExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		474A178D2C75FB98005CE676 /* BuildFormExampleUITests */ = {
+		474A17E72C760910005CE676 /* SimpleFormExampleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 474A179E2C75FB98005CE676 /* Build configuration list for PBXNativeTarget "BuildFormExampleUITests" */;
+			buildConfigurationList = 474A17F82C760910005CE676 /* Build configuration list for PBXNativeTarget "SimpleFormExampleUITests" */;
 			buildPhases = (
-				474A178A2C75FB98005CE676 /* Sources */,
-				474A178B2C75FB98005CE676 /* Frameworks */,
-				474A178C2C75FB98005CE676 /* Resources */,
+				474A17E42C760910005CE676 /* Sources */,
+				474A17E52C760910005CE676 /* Frameworks */,
+				474A17E62C760910005CE676 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				474A17902C75FB98005CE676 /* PBXTargetDependency */,
+				474A17EA2C760910005CE676 /* PBXTargetDependency */,
 			);
-			name = BuildFormExampleUITests;
-			productName = BuildFormExampleUITests;
-			productReference = 474A178E2C75FB98005CE676 /* BuildFormExampleUITests.xctest */;
+			name = SimpleFormExampleUITests;
+			productName = SimpleFormExampleUITests;
+			productReference = 474A17E82C760910005CE676 /* SimpleFormExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		474A176C2C75FB96005CE676 /* Project object */ = {
+		474A17C62C76090E005CE676 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
-					474A17732C75FB96005CE676 = {
+					474A17CD2C76090E005CE676 = {
 						CreatedOnToolsVersion = 15.1;
 					};
-					474A17832C75FB98005CE676 = {
+					474A17DD2C760910005CE676 = {
 						CreatedOnToolsVersion = 15.1;
-						TestTargetID = 474A17732C75FB96005CE676;
+						TestTargetID = 474A17CD2C76090E005CE676;
 					};
-					474A178D2C75FB98005CE676 = {
+					474A17E72C760910005CE676 = {
 						CreatedOnToolsVersion = 15.1;
-						TestTargetID = 474A17732C75FB96005CE676;
+						TestTargetID = 474A17CD2C76090E005CE676;
 					};
 				};
 			};
-			buildConfigurationList = 474A176F2C75FB96005CE676 /* Build configuration list for PBXProject "BuildFormExample" */;
+			buildConfigurationList = 474A17C92C76090E005CE676 /* Build configuration list for PBXProject "SimpleFormExample" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -214,36 +214,36 @@
 				en,
 				Base,
 			);
-			mainGroup = 474A176B2C75FB96005CE676;
-			productRefGroup = 474A17752C75FB96005CE676 /* Products */;
+			mainGroup = 474A17C52C76090E005CE676;
+			productRefGroup = 474A17CF2C76090E005CE676 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				474A17732C75FB96005CE676 /* BuildFormExample */,
-				474A17832C75FB98005CE676 /* BuildFormExampleTests */,
-				474A178D2C75FB98005CE676 /* BuildFormExampleUITests */,
+				474A17CD2C76090E005CE676 /* SimpleFormExample */,
+				474A17DD2C760910005CE676 /* SimpleFormExampleTests */,
+				474A17E72C760910005CE676 /* SimpleFormExampleUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		474A17722C75FB96005CE676 /* Resources */ = {
+		474A17CC2C76090E005CE676 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				474A177F2C75FB98005CE676 /* Preview Assets.xcassets in Resources */,
-				474A177C2C75FB98005CE676 /* Assets.xcassets in Resources */,
+				474A17D92C760910005CE676 /* Preview Assets.xcassets in Resources */,
+				474A17D62C760910005CE676 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		474A17822C75FB98005CE676 /* Resources */ = {
+		474A17DC2C760910005CE676 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		474A178C2C75FB98005CE676 /* Resources */ = {
+		474A17E62C760910005CE676 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,49 +253,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		474A17702C75FB96005CE676 /* Sources */ = {
+		474A17CA2C76090E005CE676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				474A177A2C75FB96005CE676 /* ContentView.swift in Sources */,
-				474A17782C75FB96005CE676 /* BuildFormExampleApp.swift in Sources */,
+				474A17D42C76090E005CE676 /* ContentView.swift in Sources */,
+				474A17D22C76090E005CE676 /* SimpleFormExampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		474A17802C75FB98005CE676 /* Sources */ = {
+		474A17DA2C760910005CE676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				474A17892C75FB98005CE676 /* BuildFormExampleTests.swift in Sources */,
+				474A17E32C760910005CE676 /* SimpleFormExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		474A178A2C75FB98005CE676 /* Sources */ = {
+		474A17E42C760910005CE676 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				474A17952C75FB98005CE676 /* BuildFormExampleUITestsLaunchTests.swift in Sources */,
-				474A17932C75FB98005CE676 /* BuildFormExampleUITests.swift in Sources */,
+				474A17ED2C760910005CE676 /* SimpleFormExampleUITests.swift in Sources */,
+				474A17EF2C760910005CE676 /* SimpleFormExampleUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		474A17862C75FB98005CE676 /* PBXTargetDependency */ = {
+		474A17E02C760910005CE676 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 474A17732C75FB96005CE676 /* BuildFormExample */;
-			targetProxy = 474A17852C75FB98005CE676 /* PBXContainerItemProxy */;
+			target = 474A17CD2C76090E005CE676 /* SimpleFormExample */;
+			targetProxy = 474A17DF2C760910005CE676 /* PBXContainerItemProxy */;
 		};
-		474A17902C75FB98005CE676 /* PBXTargetDependency */ = {
+		474A17EA2C760910005CE676 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 474A17732C75FB96005CE676 /* BuildFormExample */;
-			targetProxy = 474A178F2C75FB98005CE676 /* PBXContainerItemProxy */;
+			target = 474A17CD2C76090E005CE676 /* SimpleFormExample */;
+			targetProxy = 474A17E92C760910005CE676 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		474A17962C75FB98005CE676 /* Debug */ = {
+		474A17F02C760910005CE676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -358,7 +358,7 @@
 			};
 			name = Debug;
 		};
-		474A17972C75FB98005CE676 /* Release */ = {
+		474A17F12C760910005CE676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -414,14 +414,14 @@
 			};
 			name = Release;
 		};
-		474A17992C75FB98005CE676 /* Debug */ = {
+		474A17F32C760910005CE676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BuildFormExample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SimpleFormExample/Preview Content\"";
 				DEVELOPMENT_TEAM = 2575397245;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -435,7 +435,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = om.omantel.employeeapp.BuildFormExample;
+				PRODUCT_BUNDLE_IDENTIFIER = om.omantel.employeeapp.SimpleFormExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -443,14 +443,14 @@
 			};
 			name = Debug;
 		};
-		474A179A2C75FB98005CE676 /* Release */ = {
+		474A17F42C760910005CE676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BuildFormExample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SimpleFormExample/Preview Content\"";
 				DEVELOPMENT_TEAM = 2575397245;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -464,7 +464,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = om.omantel.employeeapp.BuildFormExample;
+				PRODUCT_BUNDLE_IDENTIFIER = om.omantel.employeeapp.SimpleFormExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -472,7 +472,7 @@
 			};
 			name = Release;
 		};
-		474A179C2C75FB98005CE676 /* Debug */ = {
+		474A17F62C760910005CE676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -483,16 +483,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = om.omantel.employeeapp.BuildFormExampleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = om.omantel.employeeapp.SimpleFormExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BuildFormExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BuildFormExample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleFormExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SimpleFormExample";
 			};
 			name = Debug;
 		};
-		474A179D2C75FB98005CE676 /* Release */ = {
+		474A17F72C760910005CE676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -503,16 +503,16 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = om.omantel.employeeapp.BuildFormExampleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = om.omantel.employeeapp.SimpleFormExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BuildFormExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BuildFormExample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleFormExample.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SimpleFormExample";
 			};
 			name = Release;
 		};
-		474A179F2C75FB98005CE676 /* Debug */ = {
+		474A17F92C760910005CE676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -521,16 +521,16 @@
 				DEVELOPMENT_TEAM = 2575397245;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = om.omantel.employeeapp.BuildFormExampleUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = om.omantel.employeeapp.SimpleFormExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BuildFormExample;
+				TEST_TARGET_NAME = SimpleFormExample;
 			};
 			name = Debug;
 		};
-		474A17A02C75FB98005CE676 /* Release */ = {
+		474A17FA2C760910005CE676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -539,55 +539,55 @@
 				DEVELOPMENT_TEAM = 2575397245;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = om.omantel.employeeapp.BuildFormExampleUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = om.omantel.employeeapp.SimpleFormExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BuildFormExample;
+				TEST_TARGET_NAME = SimpleFormExample;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		474A176F2C75FB96005CE676 /* Build configuration list for PBXProject "BuildFormExample" */ = {
+		474A17C92C76090E005CE676 /* Build configuration list for PBXProject "SimpleFormExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				474A17962C75FB98005CE676 /* Debug */,
-				474A17972C75FB98005CE676 /* Release */,
+				474A17F02C760910005CE676 /* Debug */,
+				474A17F12C760910005CE676 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		474A17982C75FB98005CE676 /* Build configuration list for PBXNativeTarget "BuildFormExample" */ = {
+		474A17F22C760910005CE676 /* Build configuration list for PBXNativeTarget "SimpleFormExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				474A17992C75FB98005CE676 /* Debug */,
-				474A179A2C75FB98005CE676 /* Release */,
+				474A17F32C760910005CE676 /* Debug */,
+				474A17F42C760910005CE676 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		474A179B2C75FB98005CE676 /* Build configuration list for PBXNativeTarget "BuildFormExampleTests" */ = {
+		474A17F52C760910005CE676 /* Build configuration list for PBXNativeTarget "SimpleFormExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				474A179C2C75FB98005CE676 /* Debug */,
-				474A179D2C75FB98005CE676 /* Release */,
+				474A17F62C760910005CE676 /* Debug */,
+				474A17F72C760910005CE676 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		474A179E2C75FB98005CE676 /* Build configuration list for PBXNativeTarget "BuildFormExampleUITests" */ = {
+		474A17F82C760910005CE676 /* Build configuration list for PBXNativeTarget "SimpleFormExampleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				474A179F2C75FB98005CE676 /* Debug */,
-				474A17A02C75FB98005CE676 /* Release */,
+				474A17F92C760910005CE676 /* Debug */,
+				474A17FA2C760910005CE676 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 474A176C2C75FB96005CE676 /* Project object */;
+	rootObject = 474A17C62C76090E005CE676 /* Project object */;
 }

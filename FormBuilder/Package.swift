@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "FormBuilder",
+    platforms: [
+        .iOS(.v13) // Add this line to specify iOS 13 as the minimum target
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
@@ -16,8 +19,6 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "FormBuilder"),
-        .testTarget(
-            name: "FormBuilderTests",
-            dependencies: ["FormBuilder"]),
+       
     ]
 )

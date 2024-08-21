@@ -1,13 +1,13 @@
 //
-//  BuildFormExampleUITestsLaunchTests.swift
-//  BuildFormExampleUITests
+//  SimpleFormExampleUITestsLaunchTests.swift
+//  SimpleFormExampleUITests
 //
 //  Created by Ahmad on 21/08/2024.
 //
 
 import XCTest
 
-final class BuildFormExampleUITestsLaunchTests: XCTestCase {
+final class SimpleFormExampleUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

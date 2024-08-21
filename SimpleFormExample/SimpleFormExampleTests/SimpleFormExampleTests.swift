@@ -1,14 +1,14 @@
 //
-//  BuildFormExampleTests.swift
-//  BuildFormExampleTests
+//  SimpleFormExampleTests.swift
+//  SimpleFormExampleTests
 //
 //  Created by Ahmad on 21/08/2024.
 //
 
 import XCTest
-@testable import BuildFormExample
+@testable import SimpleFormExample
 
-final class BuildFormExampleTests: XCTestCase {
+final class SimpleFormExampleTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
