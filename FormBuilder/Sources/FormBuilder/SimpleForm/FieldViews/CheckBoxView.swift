@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct CheckBoxView: View {
+struct ToggleView: View {
     @Binding var value: Bool
     var label: String
     var isEnabled: Bool
