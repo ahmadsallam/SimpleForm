@@ -11,7 +11,10 @@ import SwiftUI
 struct FormView: View {
     @ObservedObject var formModel: FormModel
     let additionalViews: [AnyView]
+    @State private var selectedDate = Date()
+    @State private var selectedTime = Date()
     
+
     var body: some View {
         Form {
             ForEach($formModel.fields) { $field in
@@ -23,11 +26,10 @@ struct FormView: View {
                             set: { newValue in field.setNewValue(newValue: AnyCodable(newValue)) }
                         ),
                         label: field.label,
-                        isEnabled: Binding(
-                            get: { field.enabled ?? false },
-                            set: { newValue in field.enable(newValue: newValue) }
-                        )
+                        isEnabled: $formModel.isOn
                     )
+                    .applyDisabledStyle(isEnabled: formModel.isOn)
+
                 case .number:
                     NumberFieldView(value: Binding(
                         get: { field.value.value as? String ?? "" },
@@ -39,11 +41,36 @@ struct FormView: View {
                         set: { newValue in field.setNewValue(newValue: AnyCodable(newValue)) }
                     ), label: field.label, options: field.options ?? [], isEnabled: field.enabled ?? true)
                 case .checkbox:
-                    CheckBoxView(value: Binding(
-                        get: { field.value.value as? Bool ?? false },
-                        set: { newValue in field.setNewValue(newValue: AnyCodable(newValue)) }
-                    ), label: field.label, isEnabled: field.enabled ?? true)
-                                    
+                    CheckBoxView(value: $formModel.isOn, label: field.label, isEnabled: field.enabled ?? true)
+                    
+                case .image:
+                    Image(field.value.value as? String ?? "")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipped()
+                    
+                    
+                case .date:
+                    DatePicker(
+                        "Date",
+                        selection: $selectedDate,
+                        in: ...Date(), // Limits selection to past dates
+                        displayedComponents: [.date] // Displays both date and time
+                    )
+                    .padding()
+
+                case .time:
+                    DatePicker(
+                        "Time",
+                        selection: $selectedTime,
+                        displayedComponents: [.hourAndMinute] // Show only time
+                    )
+                    .datePickerStyle(WheelDatePickerStyle()) // Use a wheel style for time picker
+                    .padding(EdgeInsets())
+                case .file:
+                   EmptyView()
+                case .custom:
+                   EmptyView()
                 }
             }
             
@@ -59,9 +86,9 @@ struct FormView: View {
                 }
             }
             .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .cornerRadius(8)
+            .frame(maxWidth: .infinity)
+            .background(Color.green)
+            .cornerRadius(10)
         }
     }
 }

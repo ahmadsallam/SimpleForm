@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct ToggleView: View {
+struct CheckBoxView: View {
     @Binding var value: Bool
     var label: String
     var isEnabled: Bool
@@ -19,3 +19,4 @@ struct ToggleView: View {
             .padding()
     }
 }
+

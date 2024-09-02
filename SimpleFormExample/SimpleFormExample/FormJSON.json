@@ -1,0 +1,187 @@
+{
+  "fields": [
+      {
+          "errorMessage": "Please enter a valid age between 18 and 65.",
+          "id": "age",
+          "label": "Age",
+          "options": [],
+          "style": {
+              "backgroundColor": "#FFFFFF",
+              "borderColor": "#000000",
+              "borderRadius": 8,
+              "borderWidth": 1,
+              "fontFamily": "Roboto",
+              "fontSize": 14,
+              "fontWeight": "Bold",
+              "isSingleLine": true,
+              "keyboardType": "Password",
+              "padding": 0,
+              "textAlign": "Left",
+              "textColor": "#000000"
+          },
+          "type": "number",
+          "validation": {
+              "isOptional": false,
+              "min": 18,
+              "max": 65
+          },
+          "rules": [
+              {
+                  "condition": {
+                      "type": "lessThan",
+                      "value": 18
+                  },
+                  "actions": [
+                      { "type": "showField", "targetField": "parentalConsent" },
+                      { "type": "addValidationMessage", "message": "Parental consent is required for users under 18." }
+                  ]
+              }
+          ],
+          "value": {}
+      },
+      {
+          "errorMessage": "Parental consent is required.",
+          "id": "parentalConsent",
+          "label": "Parental Consent",
+          "options": [],
+          "style": {},
+          "type": "checkbox",
+          "validation": {
+              "isOptional": false
+          },
+          "value": {},
+          "initialState": "hidden"
+      },
+      {
+          "errorMessage": "Please enter a valid email address.",
+          "id": "email",
+          "label": "Email",
+          "options": [],
+          "style": {},
+          "type": "text",
+          "validation": {
+              "isOptional": false,
+              "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+          },
+          "value": {}
+      },
+      {
+          "errorMessage": "Please confirm your email address.",
+          "id": "confirmEmail",
+          "label": "Confirm Email",
+          "options": [],
+          "style": {},
+          "type": "text",
+          "validation": {
+              "isOptional": false
+          },
+          "rules": [
+              {
+                  "condition": {
+                      "type": "equalTo",
+                      "dependsOn": "email"
+                  }
+              }
+          ],
+          "value": {}
+      },
+      {
+          "errorMessage": "Please select a subscription type.",
+          "id": "subscriptionType",
+          "label": "Subscription Type",
+          "options": [
+              "Basic",
+              "Premium"
+          ],
+          "style": {},
+          "type": "dropdown",
+          "validation": {
+              "isOptional": false
+          },
+          "value": {}
+      },
+      {
+          "errorMessage": "This field is required for Premium subscribers.",
+          "id": "billingAddress",
+          "label": "Billing Address",
+          "options": [],
+          "style": {},
+          "type": "text",
+          "validation": {
+              "isOptional": true
+          },
+          "rules": [
+              {
+                  "condition": {
+                      "type": "requiredIf",
+                      "dependsOn": "subscriptionType",
+                      "value": "Premium"
+                  },
+                  "actions": [
+                      { "type": "makeRequired" }
+                  ]
+              }
+          ],
+          "value": {}
+      },
+      {
+          "errorMessage": "Please enter a date after today.",
+          "id": "startDate",
+          "label": "Start Date",
+          "options": [],
+          "style": {},
+          "type": "date",
+          "validation": {
+              "isOptional": false,
+              "minDate": "2024-8-29"
+          },
+          "value": {}
+      },
+      {
+          "errorMessage": "End date must be after the start date.",
+          "id": "endDate",
+          "label": "End Date",
+          "options": [],
+          "style": {},
+          "type": "date",
+          "validation": {
+              "isOptional": false
+          },
+          "rules": [
+              {
+                  "condition": {
+                      "type": "minDate",
+                      "dependsOn": "startDate",
+                      "operator": "greaterThan"
+                  }
+              }
+          ],
+          "value": {}
+      },
+      {
+          "errorMessage": "Please upload a valid file (PDF, DOCX, or JPEG) with a maximum size of 5MB.",
+          "id": "attachment",
+          "label": "Attachment",
+          "options": [],
+          "style": {},
+          "type": "file",
+          "validation": {
+              "isOptional": false,
+              "allowedMimeTypes": ["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "image/jpeg"],
+              "maxSize": 5242880 
+          },
+          "value": {}
+      },
+      {
+          "errorMessage": ".",
+          "id": "profilePicture",
+          "label": "Profile Picture",
+          "options": [],
+          "style": {},
+          "type": "custom",
+          "customType": "image",
+          "validation": {},
+          "value": {}
+      }
+  ]
+}

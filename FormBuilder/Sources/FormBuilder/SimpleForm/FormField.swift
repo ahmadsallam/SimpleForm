@@ -13,6 +13,12 @@ enum FieldType: String, Decodable {
     case number
     case dropdown
     case checkbox
+
+    case image
+    case date
+    case time
+    case file
+    case custom
 }
 
 struct FormData: Decodable {
@@ -26,11 +32,15 @@ struct FormField: Decodable, Identifiable {
     var value: AnyCodable
     var enabled: Bool?
     var options: [String]?
-    var validationRules: [String]?
-    var businessRules: [BusinessRule]?
+    
+    let errorMessage: String?
+    let style: Style?
+    let rules: [Rule]?
+    let initialState, customType: String?
+    
 
     enum CodingKeys: String, CodingKey {
-        case type, label, value, enabled, options, validationRules, businessRules
+        case type, label, value, enabled, options, errorMessage, style, rules, initialState, customType
     }
 
     mutating func setNewValue(newValue: AnyCodable) {
@@ -43,7 +53,87 @@ struct FormField: Decodable, Identifiable {
 }
 
 
-struct BusinessRule: Decodable {
+// MARK: - Rule
+struct Rule: Codable {
+    let condition: Condition?
+    let actions: [Action]?
+}
+
+// MARK: - Action
+struct Action: Codable {
+    let type, targetField, message: String?
+}
+
+// MARK: - Condition
+struct Condition: Codable {
+    let type: String?
+    let value: ValueUnion?
+    let dependsOn, conditionOperator: String?
+
+    enum CodingKeys: String, CodingKey {
+        case type, value, dependsOn
+        case conditionOperator = "operator"
+    }
+}
+
+enum ValueUnion: Codable {
+    case integer(Int)
+    case string(String)
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let x = try? container.decode(Int.self) {
+            self = .integer(x)
+            return
+        }
+        if let x = try? container.decode(String.self) {
+            self = .string(x)
+            return
+        }
+        throw DecodingError.typeMismatch(ValueUnion.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for ValueUnion"))
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .integer(let x):
+            try container.encode(x)
+        case .string(let x):
+            try container.encode(x)
+        }
+    }
+}
+
+// MARK: - Style
+struct Style: Codable {
+    let backgroundColor, borderColor: String?
+    let borderRadius, borderWidth: Int?
+    let fontFamily: String?
+    let fontSize: Int?
+    let fontWeight: String?
+    let isSingleLine: Bool?
+    let keyboardType: String?
+    let padding: Int?
+    let textAlign, textColor: String?
+}
+
+// MARK: - Validation
+struct Validation: Codable {
+    let isOptional: Bool?
+    let min, max: Int?
+    let regex, minDate: String?
+    let allowedMIMETypes: [String]?
+    let maxSize: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case isOptional, min, max, regex, minDate
+        case allowedMIMETypes = "allowedMimeTypes"
+        case maxSize
+    }
+}
+
+
+struct FieldBusinesRules: Decodable {
     var targetField: String
     var action: String
     var condition: String
