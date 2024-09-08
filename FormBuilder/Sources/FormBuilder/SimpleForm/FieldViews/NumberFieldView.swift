@@ -8,14 +8,17 @@
 import Foundation
 import SwiftUI
 
-struct CheckBoxView: View {
-    @Binding var value: Bool
+struct NumberFieldView: View {
+    @Binding var value: String
     var label: String
     var isEnabled: Bool
 
     var body: some View {
-        Toggle(label, isOn: $value)
+        TextField(label, text: $value)
+            .keyboardType(.numberPad)
             .disabled(!isEnabled)
             .padding()
     }
 }
+
+
