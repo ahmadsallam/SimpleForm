@@ -20,40 +20,7 @@ struct ContentView: View {
     
     var body: some View {
         
-        builder.formView(
-            
-            additionalViews: [AnyView(
-                VStack(alignment: .leading, spacing: 20, content: {
-                    
-                    Section(header:
-                                Text("Preferences")
-                        .font(.headline)
-                        .bold()
-                    ) {
-                        Toggle(isOn: $notificationsEnabled) {
-                            Text("Enable Notifications")
-                        }
-                        
-                        Picker("Favorite Color", selection: $selectedColor) {
-                            Text("Red").tag(Color.red)
-                            Text("Green").tag(Color.green)
-                            Text("Blue") .tag(Color.blue)
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                    }
-                    
-                    Section(header: Text("Additional Information")
-                        .font(.headline)
-                        .bold()
-                    ) {
-                        DatePicker("Birthdate", selection: $birthdate, displayedComponents: .date)
-                    }
-                    
-                    
-                })
-                
-                
-            )], formJSON: loadFormModel())
+        builder.formView(additionalViews: nil, formJSON: loadFormModel(), delegate: self)
     }
     
     public func loadFormModel() -> FormModel? {
@@ -73,6 +40,33 @@ struct ContentView: View {
         }
     }
 
+}
+
+extension ContentView: CustomViewRepresentable {
+    func getCustomView(type: String) -> AnyView {
+        
+        switch type {
+        case CustomFormViewsKeys.customOutlinedButton.rawValue:
+            return AnyView(CustomAppButtonView(title: "Custom Button", type: .outlinedButton, action: {
+                print("custom view tapped")
+            }))
+            
+        case CustomFormViewsKeys.customButton.rawValue:
+            return AnyView(CustomAppButtonView(title: "Custom Button", type: .defaultButton, action: {
+                print("custom view tapped")
+            }))
+        case CustomFormViewsKeys.customTextField.rawValue:
+            return AnyView(FloatingTextField(placeHolder: "Custom filed", text: $name))
+        case CustomFormViewsKeys.image.rawValue:
+            return AnyView(Image("ooredooIcon")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .clipped())
+            
+        default:
+            return AnyView(EmptyView())
+        }
+    }
 }
 
 #Preview {

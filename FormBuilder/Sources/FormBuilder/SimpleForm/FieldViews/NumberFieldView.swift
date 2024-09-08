@@ -14,7 +14,8 @@ struct NumberFieldView: View {
     var isEnabled: Bool
 
     var body: some View {
-        TextField(label, value: $value, formatter: NumberFormatter())
+        TextField(label, text: $value)
+            .keyboardType(.numberPad)
             .disabled(!isEnabled)
             .padding()
     }

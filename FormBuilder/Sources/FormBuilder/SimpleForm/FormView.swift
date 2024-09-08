@@ -8,12 +8,16 @@
 import Foundation
 import SwiftUI
 
+public protocol CustomViewRepresentable {
+    func getCustomView(type: String) -> AnyView
+}
+
 struct FormView: View {
     @ObservedObject var formModel: FormModel
     let additionalViews: [AnyView]
     @State private var selectedDate = Date()
     @State private var selectedTime = Date()
-    
+    var delegate: CustomViewRepresentable?
 
     var body: some View {
         Form {
@@ -35,6 +39,8 @@ struct FormView: View {
                         get: { field.value.value as? String ?? "" },
                         set: { newValue in field.setNewValue(newValue: AnyCodable(newValue)) }
                     ), label: field.label, isEnabled: field.enabled ?? true)
+                    .applyDisabledStyle(isEnabled: true)
+
                 case .dropdown:
                     DropdownFieldView(value: Binding(
                         get: { field.value.value as? String ?? "" },
@@ -70,7 +76,12 @@ struct FormView: View {
                 case .file:
                    EmptyView()
                 case .custom:
-                   EmptyView()
+                    if let delegate = self.delegate {
+                        let view = delegate.getCustomView(type: field.customType ?? "")
+                        AnyView(view)
+                    } else {
+                        EmptyView()
+                    }
                 }
             }
             

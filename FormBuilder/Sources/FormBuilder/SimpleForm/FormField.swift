@@ -36,7 +36,8 @@ struct FormField: Decodable, Identifiable {
     let errorMessage: String?
     let style: Style?
     let rules: [Rule]?
-    let initialState, customType: String?
+    let initialState: String?
+    let customType: String?
     
 
     enum CodingKeys: String, CodingKey {

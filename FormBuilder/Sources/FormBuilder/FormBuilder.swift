@@ -14,9 +14,10 @@ public struct FormBuilder {
         print( "Hello, \(name) to home builder!")
     }
     
-    public func formView(additionalViews: [AnyView]?, formJSON: FormModel?) -> some View {
+    
+    public func formView(additionalViews: [AnyView]?, formJSON: FormModel?, delegate: CustomViewRepresentable) -> some View {
         if let formModel = formJSON {
-            return AnyView(FormView(formModel: formModel, additionalViews: additionalViews ?? []))
+            return AnyView(FormView(formModel: formModel, additionalViews: additionalViews ?? [], delegate: delegate))
         } else {
             return AnyView(Text("Failed to load form data"))
         }

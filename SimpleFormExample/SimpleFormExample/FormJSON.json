@@ -159,6 +159,28 @@
           "value": {}
       },
       {
+          "errorMessage": "",
+          "id": "Email ",
+          "label": "email",
+          "options": [],
+          "style": {},
+          "type": "custom",
+          "customType": "customTextField",
+          "validation": {
+              "isOptional": false
+          },
+          "rules": [
+              {
+                  "condition": {
+                      "type": "",
+                      "dependsOn": "",
+                      "operator": ""
+                  }
+              }
+          ],
+          "value": {}
+      },
+      {
           "errorMessage": "Please upload a valid file (PDF, DOCX, or JPEG) with a maximum size of 5MB.",
           "id": "attachment",
           "label": "Attachment",
@@ -182,6 +204,22 @@
           "customType": "image",
           "validation": {},
           "value": {}
+      },
+      {
+          "errorMessage": "Parental consent is required.",
+          "id": "",
+          "label": "",
+          "options": [],
+          "style": {},
+          "type": "custom",
+          "customType": "customOutlinedButton",
+          "validation": {
+              "isOptional": false
+          },
+          "value": {},
+          "initialState": "hidden"
       }
+      
+      
   ]
 }
