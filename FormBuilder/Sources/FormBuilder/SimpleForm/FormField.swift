@@ -8,28 +8,83 @@
 import Foundation
 import SwiftUI
 
-enum FieldType: String, Decodable {
+enum FieldType: String, Codable {
     case text
     case number
     case dropdown
     case checkbox
-
     case image
     case date
     case time
     case file
     case custom
+    case multiSelection
+    case unknown
+    
+    public init(from decoder: Decoder) throws {
+        self = try FieldType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
+}
+
+enum RuleConditionType: String, Codable {
+    case numeric
+    case stringLength
+    case regex
+    case date
+    case allowedMimeTypes
+    case fileSize
+    case dropDownDependency
+    case makeRequired
+    case updateOptions
+    case unknown
+    
+    public init(from decoder: Decoder) throws {
+        self = try RuleConditionType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
+}
+
+enum RuleOprators: String, Codable {
+    case equalTo
+    case notEqualTo
+    case greaterThan
+    case greaterThanOrEqualTo
+    case lessThan
+    case lessThanOrEqualTo
+    case equalToOptionValue
+    case unknown
+    
+    public init(from decoder: Decoder) throws {
+        self = try RuleOprators(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
+}
+
+enum RuleActions: String, Codable {
+    case showField
+    case hideField
+    case enableField
+    case disableField
+    case makeRequired
+    case makeOptional
+    case addValidationMessage
+    case clearValidationMessages
+    case updateOptions
+    case unknown
+    
+    public init(from decoder: Decoder) throws {
+        self = try RuleActions(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+    }
 }
 
 struct FormData: Decodable {
     let fields: [FormField]
 }
 
-struct FormField: Decodable, Identifiable {
+struct FormField: Codable, Identifiable {
     var id = UUID()
-    var type: FieldType
-    var label: String
-    var value: AnyCodable
+    var fieldID: String?
+    var type: FieldType?
+    var label: String?
+    var value: AnyCodable?
     var enabled: Bool?
     var options: [String]?
     
@@ -38,10 +93,15 @@ struct FormField: Decodable, Identifiable {
     let rules: [Rule]?
     let initialState: String?
     let customType: String?
-    
+    let alterOptions: [AlterOption]?
+    let validation: Validation?
+    var isHidden: Bool?
 
     enum CodingKeys: String, CodingKey {
-        case type, label, value, enabled, options, errorMessage, style, rules, initialState, customType
+        case type, label, value, enabled, fieldID,
+             options, errorMessage, style,
+             rules, initialState, customType,
+             alterOptions, validation, isHidden
     }
 
     mutating func setNewValue(newValue: AnyCodable) {
@@ -51,8 +111,22 @@ struct FormField: Decodable, Identifiable {
     mutating func enable(newValue: Bool) {
         self.enabled = newValue
     }
+    
+    mutating func hide(newValue: Bool) {
+        self.isHidden = newValue
+    }
+    
+    mutating func updateOptions(_ newValue: [String]) {
+        self.options = newValue
+    }
 }
 
+// MARK: - AlterOption
+class AlterOption: Codable {
+    var options: [String]?
+    var value: String?
+    var isSelected: Bool? = false
+}
 
 // MARK: - Rule
 struct Rule: Codable {
@@ -62,14 +136,16 @@ struct Rule: Codable {
 
 // MARK: - Action
 struct Action: Codable {
-    let type, targetField, message: String?
+    let type: RuleActions?
+    let targetField, message: String?
 }
 
 // MARK: - Condition
 struct Condition: Codable {
-    let type: String?
-    let value: ValueUnion?
-    let dependsOn, conditionOperator: String?
+    let type: RuleConditionType?
+    let value: AnyCodable?
+    let dependsOn: String?
+    let conditionOperator: RuleOprators?
 
     enum CodingKeys: String, CodingKey {
         case type, value, dependsOn
@@ -77,33 +153,33 @@ struct Condition: Codable {
     }
 }
 
-enum ValueUnion: Codable {
-    case integer(Int)
-    case string(String)
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if let x = try? container.decode(Int.self) {
-            self = .integer(x)
-            return
-        }
-        if let x = try? container.decode(String.self) {
-            self = .string(x)
-            return
-        }
-        throw DecodingError.typeMismatch(ValueUnion.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for ValueUnion"))
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        switch self {
-        case .integer(let x):
-            try container.encode(x)
-        case .string(let x):
-            try container.encode(x)
-        }
-    }
-}
+//enum ValueUnion: Codable {
+//    case integer(Int)
+//    case string(String)
+//
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.singleValueContainer()
+//        if let x = try? container.decode(Int.self) {
+//            self = .integer(x)
+//            return
+//        }
+//        if let x = try? container.decode(String.self) {
+//            self = .string(x)
+//            return
+//        }
+//        throw DecodingError.typeMismatch(ValueUnion.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for ValueUnion"))
+//    }
+//
+//    func encode(to encoder: Encoder) throws {
+//        var container = encoder.singleValueContainer()
+//        switch self {
+//        case .integer(let x):
+//            try container.encode(x)
+//        case .string(let x):
+//            try container.encode(x)
+//        }
+//    }
+//}
 
 // MARK: - Style
 struct Style: Codable {
@@ -122,17 +198,18 @@ struct Style: Codable {
 struct Validation: Codable {
     let isOptional: Bool?
     let min, max: Int?
-    let regex, minDate: String?
-    let allowedMIMETypes: [String]?
+    let regex: String?
+    let maxDate, minDate: String?
+    let allowedMimeTypes: [String]?
     let maxSize: Int?
-
+    let minLength, maxLength: Int?
+    
     enum CodingKeys: String, CodingKey {
-        case isOptional, min, max, regex, minDate
-        case allowedMIMETypes = "allowedMimeTypes"
-        case maxSize
+        case isOptional, min, max, regex, minDate, maxDate
+        case allowedMimeTypes
+        case maxSize, minLength, maxLength
     }
 }
-
 
 struct FieldBusinesRules: Decodable {
     var targetField: String

@@ -12,15 +12,18 @@ struct DropdownFieldView: View {
     @Binding var value: String
     var label: String
     var options: [String]
-    var isEnabled: Bool
-
+    @Binding var isEnabled: Bool
+    @Binding var isHidden: Bool
+    
     var body: some View {
-        Picker(label, selection: $value) {
-            ForEach(options, id: \.self) { option in
-                Text(option).tag(option)
+        if !isHidden {
+            Picker(label, selection: $value) {
+                ForEach(options, id: \.self) { option in
+                    Text(option).tag(option)
+                }
             }
+            .disabled(!isEnabled)
+            .padding()
         }
-        .disabled(!isEnabled)
-        .padding()
     }
 }

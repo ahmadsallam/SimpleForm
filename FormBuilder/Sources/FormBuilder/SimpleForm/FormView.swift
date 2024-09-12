@@ -17,45 +17,63 @@ struct FormView: View {
     let additionalViews: [AnyView]
     @State private var selectedDate = Date()
     @State private var selectedTime = Date()
+    
     var delegate: CustomViewRepresentable?
-
+    
     var body: some View {
         Form {
-            ForEach($formModel.fields) { $field in
+            ForEach($formModel.fields, id: \.id) { $field in
+                
                 switch field.type {
                 case .text:
                     TextFieldView(
                         value: Binding(
-                            get: { field.value.value as? String ?? "" },
-                            set: { newValue in field.setNewValue(newValue: AnyCodable(newValue)) }
-                        ),
-                        label: field.label,
-                        isEnabled: $formModel.isOn
+                            get: { ((field.value?.value ?? "") as? String) ?? "" },
+                            set: { newValue in
+                                field.setNewValue(newValue: AnyCodable(newValue))
+                                formModel.applyBusinessRules() } ),
+                        label: field.label ?? "",
+                        isEnabled: Binding(get: {field.enabled ?? true},
+                                           set: { newValue in field.enable(newValue: newValue)}),
+                        isHidden: Binding(get: {field.isHidden ?? false},
+                                          set: { newValue in field.hide(newValue: newValue)})
                     )
-                    .applyDisabledStyle(isEnabled: formModel.isOn)
-
+                    .applyDisabledStyle(isEnabled: field.enabled ?? true)
+                    
                 case .number:
-                    NumberFieldView(value: Binding(
-                        get: { field.value.value as? String ?? "" },
-                        set: { newValue in field.setNewValue(newValue: AnyCodable(newValue)) }
-                    ), label: field.label, isEnabled: field.enabled ?? true)
+                    NumberFieldView(
+                        value: Binding(
+                            get: { field.value?.value as? String ?? "" },
+                            set: { newValue in
+                                field.setNewValue(newValue: AnyCodable(newValue))
+                                formModel.applyBusinessRules()
+                            }
+                        ), label: field.label ?? "", isEnabled: field.enabled ?? true)
                     .applyDisabledStyle(isEnabled: true)
-
+                    
                 case .dropdown:
-                    DropdownFieldView(value: Binding(
-                        get: { field.value.value as? String ?? "" },
-                        set: { newValue in field.setNewValue(newValue: AnyCodable(newValue)) }
-                    ), label: field.label, options: field.options ?? [], isEnabled: field.enabled ?? true)
+                    DropdownFieldView(
+                        value: Binding(
+                            get: { field.value?.value as? String ?? field.options?.first ?? "" },
+                            set: { newValue in
+                                field.setNewValue(newValue: AnyCodable(newValue))
+                                formModel.applyBusinessRules() }),
+                        label: field.label ?? "", 
+                        options: field.options ?? [],
+                        isEnabled: Binding(get: {field.enabled ?? true},
+                                           set: { newValue in field.enable(newValue: newValue)}),
+                        isHidden: Binding(get: {field.isHidden ?? false},
+                                          set: { newValue in field.hide(newValue: newValue)}))
+                    .applyDisabledStyle(isEnabled: field.enabled ?? true)
+                    
                 case .checkbox:
-                    CheckBoxView(value: $formModel.isOn, label: field.label, isEnabled: field.enabled ?? true)
+                    CheckBoxView(value: $formModel.isOn, label: field.label ?? "", isEnabled: field.enabled ?? true)
                     
                 case .image:
-                    Image(field.value.value as? String ?? "")
+                    Image(field.value?.value as? String ?? "")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .clipped()
-                    
-                    
                 case .date:
                     DatePicker(
                         "Date",
@@ -64,7 +82,7 @@ struct FormView: View {
                         displayedComponents: [.date] // Displays both date and time
                     )
                     .padding()
-
+                    
                 case .time:
                     DatePicker(
                         "Time",
@@ -74,7 +92,7 @@ struct FormView: View {
                     .datePickerStyle(WheelDatePickerStyle()) // Use a wheel style for time picker
                     .padding(EdgeInsets())
                 case .file:
-                   EmptyView()
+                    EmptyView()
                 case .custom:
                     if let delegate = self.delegate {
                         let view = delegate.getCustomView(type: field.customType ?? "")
@@ -82,7 +100,14 @@ struct FormView: View {
                     } else {
                         EmptyView()
                     }
+                    
+                case .multiSelection:
+                    MultiSelectView()
+                        .frame(height: 300)
+                case .unknown, .none:
+                    EmptyView()
                 }
+                
             }
             
             ForEach(0..<additionalViews.count, id: \.self) { index in
