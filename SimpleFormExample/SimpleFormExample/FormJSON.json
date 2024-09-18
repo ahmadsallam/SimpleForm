@@ -64,6 +64,22 @@
           "initialState": "",
           "label": "Date",
           "rules": [],
+          "type": "date"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "multiSelectionField",
+          "initialState": "",
+          "label": "Select Multiple Options",
+          "rules": [],
+          "options": [
+              "Option 1",
+              "Option 2",
+              "Option 3"
+          ],
           "type": "multiSelection"
       },
       {
@@ -87,7 +103,7 @@
                       "dependsOn": "date",
                       "operator": "lessThanOrEqualTo",
                       "type": "date",
-                      "value": "01/09/2024"
+                      "value": "2024-09-10"
                   }
               }
           ],
@@ -289,7 +305,7 @@
           "initialState": "",
           "label": "Repeat",
           "options": [
-              "Don\u0027t repeat",
+              "Don't repeat",
               "daily",
               "weekly"
           ],
@@ -321,7 +337,7 @@
                   "condition": {
                       "dependsOn": "repeat",
                       "operator": "equalTo",
-                      "type": "showField",
+                      "type": "string",
                       "value": "daily"
                   }
               }
@@ -331,7 +347,7 @@
       {
           "alterOptions": [],
           "customType": "",
-          "dropDownLabel": "",
+          "dropDownLabel": "Week days",
           "errorMessage": "",
           "fieldID": "weekDays",
           "initialState": "",
@@ -350,14 +366,14 @@
                   "actions": [
                       {
                           "message": "",
-                          "targetField": "untilTo",
+                          "targetField": "weekDays",
                           "type": "showField"
                       }
                   ],
                   "condition": {
                       "dependsOn": "repeat",
                       "operator": "equalTo",
-                      "type": "showField",
+                      "type": "string",
                       "value": "weekly"
                   }
               }

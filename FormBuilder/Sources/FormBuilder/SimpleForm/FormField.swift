@@ -34,8 +34,7 @@ enum RuleConditionType: String, Codable {
     case allowedMimeTypes
     case fileSize
     case dropDownDependency
-    case makeRequired
-    case updateOptions
+    case string
     case unknown
     
     public init(from decoder: Decoder) throws {
@@ -87,7 +86,6 @@ struct FormField: Codable, Identifiable {
     var value: AnyCodable?
     var enabled: Bool?
     var options: [String]?
-    
     let errorMessage: String?
     let style: Style?
     let rules: [Rule]?
@@ -96,12 +94,17 @@ struct FormField: Codable, Identifiable {
     let alterOptions: [AlterOption]?
     let validation: Validation?
     var isHidden: Bool?
-
+    let dropDownLabel: String?
+    var isRequired: Bool?
+    var isSelected: Bool?
+    var isValid: Bool?
+    
     enum CodingKeys: String, CodingKey {
         case type, label, value, enabled, fieldID,
              options, errorMessage, style,
              rules, initialState, customType,
-             alterOptions, validation, isHidden
+             alterOptions, validation, isHidden,
+             dropDownLabel, isRequired, isSelected
     }
 
     mutating func setNewValue(newValue: AnyCodable) {
@@ -119,6 +122,19 @@ struct FormField: Codable, Identifiable {
     mutating func updateOptions(_ newValue: [String]) {
         self.options = newValue
     }
+    
+    mutating func required(_ newValue: Bool) {
+        self.isRequired = newValue
+    }
+    
+    mutating func selected(_ newValue: Bool) {
+        self.isSelected = newValue
+    }
+    
+    mutating func isValid(_ newValue: Bool) {
+        self.isValid = newValue
+    }
+    
 }
 
 // MARK: - AlterOption
@@ -238,6 +254,8 @@ struct AnyCodable: Codable {
             value = arrayValue.map { $0.value }
         } else if let dictionaryValue = try? container.decode([String: AnyCodable].self) {
             value = dictionaryValue.mapValues { $0.value }
+        }else if let dateValue = try? container.decode(Data.self) {
+            value = dateValue
         } else {
             throw DecodingError.typeMismatch(AnyCodable.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Unsupported value type"))
         }
@@ -259,6 +277,8 @@ struct AnyCodable: Codable {
         } else if let dictionaryValue = value as? [String: Any] {
             let encodableDictionary = dictionaryValue.mapValues { AnyCodable($0) }
             try container.encode(encodableDictionary)
+        } else if let dateValue = value as? Date {
+            try container.encode(dateValue)
         } else {
             throw EncodingError.invalidValue(value, EncodingError.Context(codingPath: encoder.codingPath, debugDescription: "Unsupported value type"))
         }

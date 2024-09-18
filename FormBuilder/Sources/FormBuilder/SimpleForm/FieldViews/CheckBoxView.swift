@@ -9,14 +9,19 @@ import Foundation
 import SwiftUI
 
 struct CheckBoxView: View {
-    @Binding var value: Bool
-    var label: String
-    var isEnabled: Bool
-
-    var body: some View {
-        Toggle(label, isOn: $value)
-            .disabled(!isEnabled)
-            .padding()
+    @Binding var isSelected: Bool
+    @Binding var isEnabled: Bool
+    var item: String
+    
+    var body: some View {        
+        VStack(alignment: .leading) {
+            SelectableRowView(item: item,
+                              isSelected: isSelected, isSingleSelection: true)
+            .onTapGesture {
+                isSelected = !isSelected
+            }
+        }
+        .padding([.top, .bottom], 10.0)
     }
 }
 

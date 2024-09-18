@@ -20,6 +20,7 @@ struct TextFieldView: View {
             TextField(label, text: $value)
                 .disabled(!isEnabled)
                 .padding()
+                .applyDisabledStyle(isEnabled: isEnabled)
         }
     }
 }

@@ -38,8 +38,7 @@ struct FormView: View {
                         isHidden: Binding(get: {field.isHidden ?? false},
                                           set: { newValue in field.hide(newValue: newValue)})
                     )
-                    .applyDisabledStyle(isEnabled: field.enabled ?? true)
-                    
+
                 case .number:
                     NumberFieldView(
                         value: Binding(
@@ -48,26 +47,31 @@ struct FormView: View {
                                 field.setNewValue(newValue: AnyCodable(newValue))
                                 formModel.applyBusinessRules()
                             }
-                        ), label: field.label ?? "", isEnabled: field.enabled ?? true)
+                        ), label: field.label ?? "",
+                        isEnabled: field.enabled ?? true)
                     .applyDisabledStyle(isEnabled: true)
                     
                 case .dropdown:
                     DropdownFieldView(
-                        value: Binding(
-                            get: { field.value?.value as? String ?? field.options?.first ?? "" },
+                        selectedOption: Binding(
+                            get: { field.value?.value as? String ?? (field.dropDownLabel ?? "")},
                             set: { newValue in
                                 field.setNewValue(newValue: AnyCodable(newValue))
-                                formModel.applyBusinessRules() }),
-                        label: field.label ?? "", 
+                                formModel.resetDependentChileds(filedId: field.fieldID ?? "")
+                                formModel.applyBusinessRules()
+                            }),
+                        label: field.dropDownLabel ?? "",
                         options: field.options ?? [],
                         isEnabled: Binding(get: {field.enabled ?? true},
                                            set: { newValue in field.enable(newValue: newValue)}),
                         isHidden: Binding(get: {field.isHidden ?? false},
                                           set: { newValue in field.hide(newValue: newValue)}))
-                    .applyDisabledStyle(isEnabled: field.enabled ?? true)
-                    
                 case .checkbox:
-                    CheckBoxView(value: $formModel.isOn, label: field.label ?? "", isEnabled: field.enabled ?? true)
+                    CheckBoxView(isSelected: Binding(get: {field.isSelected ?? false},
+                                                     set: { newValue in field.selected(newValue)}),
+                                 isEnabled: Binding(get: {field.enabled ?? true},
+                                                    set: { newValue in field.enable(newValue: newValue)}),
+                                 item: field.label ?? "")
                     
                 case .image:
                     Image(field.value?.value as? String ?? "")
@@ -75,39 +79,53 @@ struct FormView: View {
                         .aspectRatio(contentMode: .fill)
                         .clipped()
                 case .date:
-                    DatePicker(
-                        "Date",
-                        selection: $selectedDate,
-                        in: ...Date(), // Limits selection to past dates
-                        displayedComponents: [.date] // Displays both date and time
-                    )
-                    .padding()
+                    DateFieldView(
+                        selectedDate: Binding(get: {(field.value?.value as? Date) ?? Date()},
+                                              set: { newValue in
+                                                  field.setNewValue(newValue: AnyCodable(newValue))
+                                                  formModel.applyBusinessRules() }),
+                                  label: field.label ?? "",
+                                  isEnabled: Binding(get: {field.enabled ?? true},
+                                                     set: { newValue in field.enable(newValue: newValue)}),
+                                  
+                                  isHidden: Binding(get: {field.isHidden ?? false},
+                                                    set: { newValue in field.hide(newValue: newValue)}))
                     
                 case .time:
+                                        
                     DatePicker(
                         "Time",
                         selection: $selectedTime,
                         displayedComponents: [.hourAndMinute] // Show only time
                     )
-                    .datePickerStyle(WheelDatePickerStyle()) // Use a wheel style for time picker
                     .padding(EdgeInsets())
                 case .file:
                     EmptyView()
                 case .custom:
-                    if let delegate = self.delegate {
+                    if let delegate = self.delegate, !(field.isHidden ?? true ) {
                         let view = delegate.getCustomView(type: field.customType ?? "")
+                        
                         AnyView(view)
+                        
                     } else {
                         EmptyView()
                     }
                     
                 case .multiSelection:
-                    MultiSelectView()
-                        .frame(height: 300)
+                    MultiSelectView(selectedOption: Binding(
+                        get: { field.value?.value as? String ?? (field.dropDownLabel ?? "")/*field.options?.first ?? ""*/ },
+                        set: { newValue in
+                            field.setNewValue(newValue: AnyCodable(newValue))
+                            formModel.applyBusinessRules() }),
+                                    label: field.label ?? "",
+                                    options: field.options ?? [],
+                                    isEnabled: Binding(get: {field.enabled ?? true},
+                                                       set: { newValue in field.enable(newValue: newValue)}),
+                                    isHidden: Binding(get: {field.isHidden ?? false},
+                                                      set: { newValue in field.hide(newValue: newValue)}))
                 case .unknown, .none:
                     EmptyView()
                 }
-                
             }
             
             ForEach(0..<additionalViews.count, id: \.self) { index in
