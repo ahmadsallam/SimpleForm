@@ -19,6 +19,8 @@ enum FieldType: String, Codable {
     case file
     case custom
     case multiSelection
+    case radio
+    case `switch`
     case unknown
     
     public init(from decoder: Decoder) throws {
@@ -107,7 +109,7 @@ struct FormField: Codable, Identifiable {
              dropDownLabel, isRequired, isSelected
     }
 
-    mutating func setNewValue(newValue: AnyCodable) {
+    mutating func setNewValue(newValue: AnyCodable?) {
         self.value = newValue
     }
 

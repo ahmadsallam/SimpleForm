@@ -11,17 +11,20 @@ import SwiftUI
 struct CheckBoxView: View {
     @Binding var isSelected: Bool
     @Binding var isEnabled: Bool
+    @Binding var isHidden: Bool
     var item: String
     
-    var body: some View {        
-        VStack(alignment: .leading) {
-            SelectableRowView(item: item,
-                              isSelected: isSelected, isSingleSelection: true)
-            .onTapGesture {
-                isSelected = !isSelected
+    var body: some View {
+        if !isHidden {
+            VStack(alignment: .leading) {
+                SelectableRowView(item: item,
+                                  isSelected: isSelected, isSingleSelection: true)
+                .onTapGesture {
+                    isSelected = !isSelected
+                }
             }
+            .padding([.top, .bottom], 10.0)
         }
-        .padding([.top, .bottom], 10.0)
     }
 }
 

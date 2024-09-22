@@ -9,13 +9,14 @@ import Foundation
 import SwiftUI
 
 public extension View {
-    func applyDisabledStyle(isEnabled: Bool) -> some View {
-        self.modifier(DisabledStyle(isEnabled: isEnabled))
+    func applyOutlinedStyle(isEnabled: Bool, isValid: Bool) -> some View {
+        self.modifier(OutlinedStyle(isEnabled: isEnabled, isValid: isValid))
     }
 }
 
-struct DisabledStyle: ViewModifier {
+struct OutlinedStyle: ViewModifier {
     var isEnabled: Bool
+    var isValid: Bool
 
     func body(content: Content) -> some View {
         content
@@ -23,7 +24,7 @@ struct DisabledStyle: ViewModifier {
             .opacity(isEnabled ? 1.0 : 0.6) // Adjust opacity
             .background(
                 RoundedRectangle(cornerRadius: 8)
-                    .stroke(isEnabled ? Color(UIColor.darkText) : Color(UIColor.lightGray), lineWidth: 1) // Adjust border color
+                    .stroke( isValid ? (isEnabled ? .blue : Color(UIColor.lightGray)) : .red, lineWidth: 1) // Adjust border color
             )
     }
 }

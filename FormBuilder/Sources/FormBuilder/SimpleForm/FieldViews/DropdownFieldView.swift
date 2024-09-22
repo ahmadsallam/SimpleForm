@@ -43,7 +43,7 @@ struct DropdownFieldView: View {
                         .frame(maxWidth: .infinity)
                     }
                     .disabled(!isEnabled)
-                    .applyDisabledStyle(isEnabled: isEnabled)
+                    .applyOutlinedStyle(isEnabled: isEnabled, isValid: true)
                 }
                 if !isValid {
                     ErrorMessageView(message: "error")
