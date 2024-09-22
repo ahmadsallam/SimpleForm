@@ -40,6 +40,23 @@ struct ContentView: View {
         }
     }
 
+    public func loadFormJSONToData() -> Data? {
+        let bundle = Bundle.main // Use Bundle.module to access package resources
+        if let url = bundle.url(forResource: "FormJSON", withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url)
+                return data
+            } catch {
+                print("Failed to load data from JSON file: \(error)")
+                return nil
+            }
+        } else {
+            print("JSON file not found in the bundle.")
+            return nil
+        }
+
+    }
+
 }
 
 extension ContentView: CustomViewRepresentable {
