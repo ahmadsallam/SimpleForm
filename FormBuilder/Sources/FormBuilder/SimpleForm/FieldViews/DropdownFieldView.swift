@@ -9,18 +9,46 @@ import Foundation
 import SwiftUI
 
 struct DropdownFieldView: View {
-    @Binding var value: String
+    @Binding var selectedOption: String
     var label: String
     var options: [String]
-    var isEnabled: Bool
-
+    @Binding var isEnabled: Bool
+    @Binding var isHidden: Bool
+    @State var isValid = true
+    
     var body: some View {
-        Picker(label, selection: $value) {
-            ForEach(options, id: \.self) { option in
-                Text(option).tag(option)
+        if !isHidden {
+            VStack {
+                HStack {
+                    Menu {
+                        ForEach(options, id: \.self) { option in
+                            Button(action: {
+                                selectedOption = option
+                            }) {
+                                Text(option)
+                            }
+                        }
+                    } label: {
+                        HStack {
+                            Text(selectedOption)
+                                .foregroundColor(selectedOption.isEmpty ? .gray : .primary)
+                                .padding()
+                            
+                            Spacer() // Push text to the left
+                            
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(.gray)
+                                .padding()
+                        }
+                        .frame(maxWidth: .infinity)
+                    }
+                    .disabled(!isEnabled)
+                    .applyDisabledStyle(isEnabled: isEnabled)
+                }
+                if !isValid {
+                    ErrorMessageView(message: "error")
+                }
             }
         }
-        .disabled(!isEnabled)
-        .padding()
     }
 }

@@ -23,7 +23,7 @@ struct DisabledStyle: ViewModifier {
             .opacity(isEnabled ? 1.0 : 0.6) // Adjust opacity
             .background(
                 RoundedRectangle(cornerRadius: 8)
-                    .stroke(isEnabled ? Color.blue : Color.gray, lineWidth: 1) // Adjust border color
+                    .stroke(isEnabled ? Color(UIColor.darkText) : Color(UIColor.lightGray), lineWidth: 1) // Adjust border color
             )
     }
 }

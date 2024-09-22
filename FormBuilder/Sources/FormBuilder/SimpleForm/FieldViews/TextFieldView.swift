@@ -12,10 +12,15 @@ struct TextFieldView: View {
     @Binding var value: String
     var label: String
     @Binding var isEnabled: Bool
+    @Binding var isHidden: Bool
+    
 
     var body: some View {
-        TextField(label, text: $value)
-            .disabled(!isEnabled)
-            .padding()
+        if !isHidden {
+            TextField(label, text: $value)
+                .disabled(!isEnabled)
+                .padding()
+                .applyDisabledStyle(isEnabled: isEnabled)
+        }
     }
 }

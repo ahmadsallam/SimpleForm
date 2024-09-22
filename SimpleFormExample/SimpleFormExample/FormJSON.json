@@ -1,225 +1,708 @@
 {
   "fields": [
       {
-          "errorMessage": "Please enter a valid age between 18 and 65.",
-          "id": "age",
-          "label": "Age",
-          "options": [],
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "eventTitle",
+          "initialState": "",
+          "label": "Event Title",
+          "rules": [],
           "style": {
               "backgroundColor": "#FFFFFF",
-              "borderColor": "#000000",
-              "borderRadius": 8,
-              "borderWidth": 1,
-              "fontFamily": "Roboto",
-              "fontSize": 14,
-              "fontWeight": "Bold",
-              "isSingleLine": true,
-              "keyboardType": "Password",
-              "padding": 0,
-              "textAlign": "Left",
-              "textColor": "#000000"
+              "fontWeight": "Bold"
           },
-          "type": "number",
-          "validation": {
-              "isOptional": false,
-              "min": 18,
-              "max": 65
-          },
-          "rules": [
-              {
-                  "condition": {
-                      "type": "lessThan",
-                      "value": 18
-                  },
-                  "actions": [
-                      { "type": "showField", "targetField": "parentalConsent" },
-                      { "type": "addValidationMessage", "message": "Parental consent is required for users under 18." }
-                  ]
-              }
-          ],
-          "value": {}
-      },
-      {
-          "errorMessage": "Parental consent is required.",
-          "id": "parentalConsent",
-          "label": "Parental Consent",
-          "options": [],
-          "style": {},
-          "type": "checkbox",
-          "validation": {
-              "isOptional": false
-          },
-          "value": {},
-          "initialState": "hidden"
-      },
-      {
-          "errorMessage": "Please enter a valid email address.",
-          "id": "email",
-          "label": "Email",
-          "options": [],
-          "style": {},
           "type": "text",
           "validation": {
+              "allowedMimeTypes": [],
+              "isOptional": false
+          }
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "email",
+          "initialState": "",
+          "label": "Email",
+          "rules": [
+              {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "email",
+                          "type": "enableField"
+                      }
+                  ],
+                  "condition": {
+                      "dependsOn": "eventTitle",
+                      "operator": "greaterThanOrEqualTo",
+                      "type": "stringLength",
+                      "value": "6"
+                  }
+              }
+          ],
+          "style": {
+              "backgroundColor": "#FFFFFF",
+              "fontWeight": "Bold"
+          },
+          "type": "text",
+          "validation": {
+              "allowedMimeTypes": [],
               "isOptional": false,
               "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
-          },
-          "value": {}
+          }
       },
       {
-          "errorMessage": "Please confirm your email address.",
-          "id": "confirmEmail",
-          "label": "Confirm Email",
-          "options": [],
-          "style": {},
-          "type": "text",
-          "validation": {
-              "isOptional": false
-          },
-          "rules": [
-              {
-                  "condition": {
-                      "type": "equalTo",
-                      "dependsOn": "email"
-                  }
-              }
-          ],
-          "value": {}
-      },
-      {
-          "errorMessage": "Please select a subscription type.",
-          "id": "subscriptionType",
-          "label": "Subscription Type",
-          "options": [
-              "Basic",
-              "Premium"
-          ],
-          "style": {},
-          "type": "dropdown",
-          "validation": {
-              "isOptional": false
-          },
-          "value": {}
-      },
-      {
-          "errorMessage": "This field is required for Premium subscribers.",
-          "id": "billingAddress",
-          "label": "Billing Address",
-          "options": [],
-          "style": {},
-          "type": "text",
-          "validation": {
-              "isOptional": true
-          },
-          "rules": [
-              {
-                  "condition": {
-                      "type": "requiredIf",
-                      "dependsOn": "subscriptionType",
-                      "value": "Premium"
-                  },
-                  "actions": [
-                      { "type": "makeRequired" }
-                  ]
-              }
-          ],
-          "value": {}
-      },
-      {
-          "errorMessage": "Please enter a date after today.",
-          "id": "startDate",
-          "label": "Start Date",
-          "options": [],
-          "style": {},
-          "type": "date",
-          "validation": {
-              "isOptional": false,
-              "minDate": "2024-8-29"
-          },
-          "value": {}
-      },
-      {
-          "errorMessage": "End date must be after the start date.",
-          "id": "endDate",
-          "label": "End Date",
-          "options": [],
-          "style": {},
-          "type": "date",
-          "validation": {
-              "isOptional": false
-          },
-          "rules": [
-              {
-                  "condition": {
-                      "type": "minDate",
-                      "dependsOn": "startDate",
-                      "operator": "greaterThan"
-                  }
-              }
-          ],
-          "value": {}
-      },
-      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
           "errorMessage": "",
-          "id": "Email ",
-          "label": "email",
-          "options": [],
-          "style": {},
-          "type": "custom",
-          "customType": "customTextField",
-          "validation": {
-              "isOptional": false
-          },
+          "fieldID": "date",
+          "initialState": "",
+          "label": "Date",
+          "rules": [],
+          "type": "date"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "multiSelectionField",
+          "initialState": "",
+          "label": "Select Multiple Options",
+          "rules": [],
+          "options": [
+              "Option 1",
+              "Option 2",
+              "Option 3"
+          ],
+          "type": "multiSelection"
+      },
+      {
+          "alterOptions": [],
+          "customType": "image",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "customImage",
+          "initialState": "",
+          "label": "Custom Image",
           "rules": [
               {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "customImage",
+                          "type": "showField"
+                      }
+                  ],
                   "condition": {
-                      "type": "",
-                      "dependsOn": "",
-                      "operator": ""
+                      "dependsOn": "date",
+                      "operator": "lessThanOrEqualTo",
+                      "type": "date",
+                      "value": "2024-09-10"
                   }
               }
           ],
-          "value": {}
+          "type": "custom"
       },
       {
-          "errorMessage": "Please upload a valid file (PDF, DOCX, or JPEG) with a maximum size of 5MB.",
-          "id": "attachment",
-          "label": "Attachment",
-          "options": [],
-          "style": {},
-          "type": "file",
-          "validation": {
-              "isOptional": false,
-              "allowedMimeTypes": ["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "image/jpeg"],
-              "maxSize": 5242880 
-          },
-          "value": {}
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "time",
+          "initialState": "",
+          "label": "Time",
+          "rules": [],
+          "type": "time"
       },
       {
-          "errorMessage": ".",
-          "id": "profilePicture",
-          "label": "Profile Picture",
-          "options": [],
-          "style": {},
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "Select State",
+          "errorMessage": "",
+          "fieldID": "state",
+          "initialState": "",
+          "label": "State",
+          "options": [
+              "New York",
+              "Texas",
+              "California"
+          ],
+          "rules": [],
+          "type": "dropdown"
+      },
+      {
+          "alterOptions": [
+              {
+                  "options": [
+                      "New York",
+                      "Buffalo",
+                      "Albany"
+                  ],
+                  "value": "New York"
+              },
+              {
+                  "options": [
+                      "Dallas",
+                      "Austin",
+                      "Houston"
+                  ],
+                  "value": "Texas"
+              },
+              {
+                  "options": [
+                      "Los Angeles",
+                      "San Diego",
+                      "San Francisco"
+                  ],
+                  "value": "California"
+              }
+          ],
+          "customType": "",
+          "dropDownLabel": "Select City",
+          "errorMessage": "",
+          "fieldID": "city",
+          "initialState": "",
+          "label": "City",
+          "rules": [
+              {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "city",
+                          "type": "showField"
+                      },
+                      {
+                          "message": "",
+                          "targetField": "city",
+                          "type": "updateOptions"
+                      }
+                  ],
+                  "condition": {
+                      "dependsOn": "state",
+                      "operator": "equalToOptionValue",
+                      "type": "dropDownDependency"
+                  }
+              }
+          ],
+          "type": "dropdown"
+      },
+      {
+          "alterOptions": [
+              {
+                  "options": [
+                      "Manhattan",
+                      "Queens",
+                      "Brooklyn"
+                  ],
+                  "value": "New York"
+              },
+              {
+                  "options": [
+                      "Allentown",
+                      "Elmwood Village",
+                      "North Park"
+                  ],
+                  "value": "Buffalo"
+              },
+              {
+                  "options": [
+                      "Pine Hills",
+                      "Center Square",
+                      "Delaware Avenue"
+                  ],
+                  "value": "Albany"
+              },
+              {
+                  "options": [
+                      "Downtown",
+                      "Deep Ellum",
+                      "Uptown"
+                  ],
+                  "value": "Dallas"
+              },
+              {
+                  "options": [
+                      "Downtown",
+                      "South Congress",
+                      "East Austin"
+                  ],
+                  "value": "Austin"
+              },
+              {
+                  "options": [
+                      "Downtown",
+                      "Midtown",
+                      "Montrose"
+                  ],
+                  "value": "Houston"
+              },
+              {
+                  "options": [
+                      "Hollywood",
+                      "Downtown",
+                      "Venice"
+                  ],
+                  "value": "Los Angeles"
+              },
+              {
+                  "options": [
+                      "Gaslamp Quarter",
+                      "Old Town",
+                      "La Jolla"
+                  ],
+                  "value": "San Diego"
+              },
+              {
+                  "options": [
+                      "Mission District",
+                      "Chinatown",
+                      "Fisherman\u0027s Wharf"
+                  ],
+                  "value": "San Francisco"
+              }
+          ],
+          "customType": "",
+          "dropDownLabel": "Select Town",
+          "errorMessage": "",
+          "fieldID": "town",
+          "initialState": "",
+          "label": "Town",
+          "rules": [
+              {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "town",
+                          "type": "showField"
+                      },
+                      {
+                          "message": "",
+                          "targetField": "town",
+                          "type": "updateOptions"
+                      }
+                  ],
+                  "condition": {
+                      "dependsOn": "city",
+                      "operator": "equalToOptionValue",
+                      "type": "dropDownDependency"
+                  }
+              }
+          ],
+          "type": "dropdown"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "Repeat ?",
+          "errorMessage": "",
+          "fieldID": "repeat",
+          "initialState": "",
+          "label": "Repeat",
+          "options": [
+              "Don't repeat",
+              "daily",
+              "weekly"
+          ],
+          "rules": [],
+          "type": "dropdown"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "untilTo",
+          "initialState": "",
+          "label": "Until To",
+          "rules": [
+              {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "untilTo",
+                          "type": "showField"
+                      },
+                      {
+                          "message": "Rule Action Message",
+                          "targetField": "untilTo",
+                          "type": "makeRequired"
+                      }
+                  ],
+                  "condition": {
+                      "dependsOn": "repeat",
+                      "operator": "equalTo",
+                      "type": "string",
+                      "value": "daily"
+                  }
+              }
+          ],
+          "type": "date"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "Week days",
+          "errorMessage": "",
+          "fieldID": "weekDays",
+          "initialState": "",
+          "label": "Week days",
+          "options": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+          ],
+          "rules": [
+              {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "weekDays",
+                          "type": "showField"
+                      }
+                  ],
+                  "condition": {
+                      "dependsOn": "repeat",
+                      "operator": "equalTo",
+                      "type": "string",
+                      "value": "weekly"
+                  }
+              }
+          ],
+          "type": "dropdown"
+      },
+      {
+          "alterOptions": [],
+          "customType": "radio",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "eventType",
+          "initialState": "",
+          "label": "Event Type",
+          "options": [
+              "Internal Event",
+              "External Event"
+          ],
+          "rules": [],
           "type": "custom",
-          "customType": "image",
-          "validation": {},
-          "value": {}
-      },
-      {
-          "errorMessage": "Parental consent is required.",
-          "id": "",
-          "label": "",
-          "options": [],
-          "style": {},
-          "type": "custom",
-          "customType": "customOutlinedButton",
           "validation": {
+              "allowedMimeTypes": [],
               "isOptional": false
+          }
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "numberOfAttendence",
+          "initialState": "",
+          "label": "Number of Attendence",
+          "rules": [],
+          "style": {
+              "backgroundColor": "#FFFFFF",
+              "fontWeight": "Bold",
+              "isSingleLine": true,
+              "keyboardType": "Number"
           },
-          "value": {},
-          "initialState": "hidden"
+          "type": "text",
+          "validation": {
+              "allowedMimeTypes": [],
+              "isOptional": false
+          }
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "extraHospitality",
+          "initialState": "",
+          "label": "Bring extra hospitality",
+          "rules": [
+              {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "extraHospitality",
+                          "type": "showField"
+                      }
+                  ],
+                  "condition": {
+                      "dependsOn": "numberOfAttendence",
+                      "operator": "greaterThanOrEqualTo",
+                      "type": "numeric",
+                      "value": "20"
+                  }
+              }
+          ],
+          "type": "checkbox"
+      },
+      {
+          "alterOptions": [],
+          "customType": "radio",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "arrangements",
+          "initialState": "",
+          "label": "Arrangements",
+          "options": [
+              "Standard auditorium",
+              "Workshop layout",
+              "MOU Signing Ceremony layout",
+              "Forum Setting",
+              "Custom Setting"
+          ],
+          "rules": [],
+          "type": "custom",
+          "validation": {
+              "allowedMimeTypes": [],
+              "isOptional": false
+          }
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "number of chairs",
+          "initialState": "",
+          "label": "Number of Chairs",
+          "rules": [
+              {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "number of chairs",
+                          "type": "showField"
+                      }
+                  ],
+                  "condition": {
+                      "dependsOn": "arrangements",
+                      "operator": "equalTo",
+                      "type": "showField",
+                      "value": "Standard auditorium"
+                  }
+              }
+          ],
+          "type": "text"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "number of tables",
+          "initialState": "",
+          "label": "Number of Tables",
+          "rules": [
+              {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "number of tables",
+                          "type": "showField"
+                      }
+                  ],
+                  "condition": {
+                      "dependsOn": "arrangements",
+                      "operator": "equalTo",
+                      "type": "showField",
+                      "value": "Workshop layout"
+                  }
+              }
+          ],
+          "type": "text"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "people per tables",
+          "initialState": "",
+          "label": "People per Table",
+          "rules": [
+              {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "people per tables",
+                          "type": "showField"
+                      }
+                  ],
+                  "condition": {
+                      "dependsOn": "arrangements",
+                      "operator": "equalTo",
+                      "type": "showField",
+                      "value": "Workshop layout"
+                  }
+              }
+          ],
+          "type": "text"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "number of signing",
+          "initialState": "",
+          "label": "Number of signing representafives",
+          "rules": [
+              {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "number of signing",
+                          "type": "showField"
+                      }
+                  ],
+                  "condition": {
+                      "dependsOn": "arrangements",
+                      "operator": "equalTo",
+                      "type": "showField",
+                      "value": "MOU Signing Ceremony layout"
+                  }
+              }
+          ],
+          "type": "text"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "number of vip",
+          "initialState": "",
+          "label": "Number of VIP on sofa seats",
+          "rules": [
+              {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "number of vip",
+                          "type": "showField"
+                      }
+                  ],
+                  "condition": {
+                      "dependsOn": "arrangements",
+                      "operator": "equalTo",
+                      "type": "showField",
+                      "value": "MOU Signing Ceremony layout"
+                  }
+              }
+          ],
+          "type": "text"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "number of speakers",
+          "initialState": "",
+          "label": "Number of Speakers",
+          "rules": [
+              {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "number of speakers",
+                          "type": "showField"
+                      }
+                  ],
+                  "condition": {
+                      "dependsOn": "arrangements",
+                      "operator": "equalTo",
+                      "type": "showField",
+                      "value": "Forum Setting"
+                  }
+              }
+          ],
+          "type": "text"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "description",
+          "initialState": "",
+          "label": "Description",
+          "rules": [
+              {
+                  "actions": [
+                      {
+                          "message": "",
+                          "targetField": "description",
+                          "type": "showField"
+                      }
+                  ],
+                  "condition": {
+                      "dependsOn": "arrangements",
+                      "operator": "equalTo",
+                      "type": "",
+                      "value": "Custom Setting"
+                  }
+              }
+          ],
+          "type": "text"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "vipAttendees",
+          "initialState": "",
+          "label": "VIP Attendees",
+          "options": [
+              "VIP Attendees",
+              "VIP Parking"
+          ],
+          "rules": [],
+          "type": "multiselect"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "additinal remarks",
+          "initialState": "",
+          "label": "Additional Remarks",
+          "options": [
+              "There will be catering for the event.",
+              "Audio visual assistance is required."
+          ],
+          "rules": [],
+          "type": "switch"
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "",
+          "fieldID": "additionalRemarks1",
+          "initialState": "",
+          "label": "Additional Remarks",
+          "rules": [],
+          "style": {
+              "backgroundColor": "#FFFFFF",
+              "fontWeight": "Bold",
+              "isSingleLine": false
+          },
+          "type": "text"
       }
-      
-      
   ]
 }
