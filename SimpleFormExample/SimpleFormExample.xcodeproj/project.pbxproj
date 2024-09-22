@@ -16,6 +16,7 @@
 		474A17EF2C760910005CE676 /* SimpleFormExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A17EE2C760910005CE676 /* SimpleFormExampleUITestsLaunchTests.swift */; };
 		474A17FD2C76092E005CE676 /* FormBuilder in Frameworks */ = {isa = PBXBuildFile; productRef = 474A17FC2C76092E005CE676 /* FormBuilder */; };
 		47CE21052C7B28E60034DC66 /* FormJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 47CE21042C7B28E50034DC66 /* FormJSON.json */; };
+		A732714E2CA0149B005239FE /* BusinessRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A732714D2CA0149B005239FE /* BusinessRuleTests.swift */; };
 		DB3929992C8D96E50036F92C /* CustomAppButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3929962C8D96E50036F92C /* CustomAppButtonView.swift */; };
 		DB39299A2C8D96E50036F92C /* FloatingTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3929972C8D96E50036F92C /* FloatingTextFieldView.swift */; };
 		DB39299B2C8D96E50036F92C /* CustomFormViewsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3929982C8D96E50036F92C /* CustomFormViewsKeys.swift */; };
@@ -50,6 +51,7 @@
 		474A17EC2C760910005CE676 /* SimpleFormExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleFormExampleUITests.swift; sourceTree = "<group>"; };
 		474A17EE2C760910005CE676 /* SimpleFormExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleFormExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		47CE21042C7B28E50034DC66 /* FormJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FormJSON.json; sourceTree = "<group>"; };
+		A732714D2CA0149B005239FE /* BusinessRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessRuleTests.swift; sourceTree = "<group>"; };
 		DB3929962C8D96E50036F92C /* CustomAppButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAppButtonView.swift; sourceTree = "<group>"; };
 		DB3929972C8D96E50036F92C /* FloatingTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingTextFieldView.swift; sourceTree = "<group>"; };
 		DB3929982C8D96E50036F92C /* CustomFormViewsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFormViewsKeys.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				474A17E22C760910005CE676 /* SimpleFormExampleTests.swift */,
+				A732714D2CA0149B005239FE /* BusinessRuleTests.swift */,
 			);
 			path = SimpleFormExampleTests;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				474A17E32C760910005CE676 /* SimpleFormExampleTests.swift in Sources */,
+				A732714E2CA0149B005239FE /* BusinessRuleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
