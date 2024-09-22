@@ -31,12 +31,16 @@ struct FormView: View {
                             get: { ((field.value?.value ?? "") as? String) ?? "" },
                             set: { newValue in
                                 field.setNewValue(newValue: AnyCodable(newValue))
+                                formModel.resetDependentChileds(filedId: field.fieldID ?? "")
                                 formModel.applyBusinessRules() } ),
                         label: field.label ?? "",
                         isEnabled: Binding(get: {field.enabled ?? true},
                                            set: { newValue in field.enable(newValue: newValue)}),
                         isHidden: Binding(get: {field.isHidden ?? false},
-                                          set: { newValue in field.hide(newValue: newValue)})
+                                          set: { newValue in field.hide(newValue: newValue)}),
+                        isValid: field.isValid ?? true,
+                        errorMessage: field.errorMessage ?? "",
+                        keyboardType: field.style?.keyboardType ?? ""
                     )
 
                 case .number:
@@ -47,9 +51,14 @@ struct FormView: View {
                                 field.setNewValue(newValue: AnyCodable(newValue))
                                 formModel.applyBusinessRules()
                             }
-                        ), label: field.label ?? "",
-                        isEnabled: field.enabled ?? true)
-                    .applyDisabledStyle(isEnabled: true)
+                        ),
+                        label: field.label ?? "",
+                        isEnabled: Binding(get: {field.enabled ?? true},
+                                           set: { newValue in field.enable(newValue: newValue)}),
+                        isHidden: Binding(get: {field.isHidden ?? false},
+                                          set: { newValue in field.hide(newValue: newValue)}),
+                        isValid: field.isValid ?? true,
+                        errorMessage: field.errorMessage ?? "")
                     
                 case .dropdown:
                     DropdownFieldView(
@@ -71,25 +80,28 @@ struct FormView: View {
                                                      set: { newValue in field.selected(newValue)}),
                                  isEnabled: Binding(get: {field.enabled ?? true},
                                                     set: { newValue in field.enable(newValue: newValue)}),
+                                 isHidden: Binding(get: {field.isHidden ?? false},
+                                                   set: { newValue in field.hide(newValue: newValue)}),
                                  item: field.label ?? "")
                     
                 case .image:
-                    Image(field.value?.value as? String ?? "")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .clipped()
+                    EmptyView()
+//                    AttachmentUploadView()
                 case .date:
                     DateFieldView(
                         selectedDate: Binding(get: {(field.value?.value as? Date) ?? Date()},
                                               set: { newValue in
                                                   field.setNewValue(newValue: AnyCodable(newValue))
                                                   formModel.applyBusinessRules() }),
-                                  label: field.label ?? "",
-                                  isEnabled: Binding(get: {field.enabled ?? true},
-                                                     set: { newValue in field.enable(newValue: newValue)}),
-                                  
-                                  isHidden: Binding(get: {field.isHidden ?? false},
-                                                    set: { newValue in field.hide(newValue: newValue)}))
+                        label: field.label ?? "",
+                        isEnabled: Binding(get: {field.enabled ?? true},
+                                           set: { newValue in field.enable(newValue: newValue)}),
+                        
+                        isHidden: Binding(get: {field.isHidden ?? false},
+                                          set: { newValue in field.hide(newValue: newValue)}),
+                        isValid: field.isValid ?? true,
+                        errorMessage: field.errorMessage ?? "")
+                    
                     
                 case .time:
                                         
@@ -113,7 +125,7 @@ struct FormView: View {
                     
                 case .multiSelection:
                     MultiSelectView(selectedOption: Binding(
-                        get: { field.value?.value as? String ?? (field.dropDownLabel ?? "")/*field.options?.first ?? ""*/ },
+                        get: { field.value?.value as? String ?? (field.dropDownLabel ?? "") },
                         set: { newValue in
                             field.setNewValue(newValue: AnyCodable(newValue))
                             formModel.applyBusinessRules() }),
@@ -123,6 +135,28 @@ struct FormView: View {
                                                        set: { newValue in field.enable(newValue: newValue)}),
                                     isHidden: Binding(get: {field.isHidden ?? false},
                                                       set: { newValue in field.hide(newValue: newValue)}))
+                    
+                case .radio:
+                    SingleSelectionView(
+                        selectedOption: Binding(get: { field.value?.value as? String ?? (field.dropDownLabel ?? "") },
+                                                 set: { newValue in
+                                                     field.setNewValue(newValue: AnyCodable(newValue))
+                                                     formModel.applyBusinessRules() }),
+                        label: field.label ?? "",
+                        options: field.options ?? [],
+                        isEnabled: Binding(get: {field.enabled ?? true},
+                                           set: { newValue in field.enable(newValue: newValue)}),
+                        isHidden: Binding(get: {field.isHidden ?? false},
+                                          set: { newValue in field.hide(newValue: newValue)}))
+                    
+                case .switch:
+                    VStack {
+                        Toggle(isOn: Binding(get: {field.enabled ?? true},
+                                             set: { newValue in field.enable(newValue: newValue)})) {
+                            Text(field.label ?? "")
+                        }
+                    }
+                    
                 case .unknown, .none:
                     EmptyView()
                 }
@@ -133,11 +167,14 @@ struct FormView: View {
             }
             
             Button("Submit") {
-                if formModel.validate() {
-                    print("Form is valid, proceed with submission")
-                } else {
-                    print("Form is invalid, please correct the errors")
-                }
+//                if formModel.validate() {
+//                    print("Form is valid, proceed with submission")
+//                } else {
+//                    print("Form is invalid, please correct the errors")
+//                }
+                
+                formModel.applayValidation()
+                
             }
             .padding()
             .frame(maxWidth: .infinity)

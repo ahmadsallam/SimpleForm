@@ -16,9 +16,9 @@ struct ErrorMessageView: View {
             
             Text(message)
                 .foregroundColor(.red)
-                .transition(.opacity)
-                .animation(.easeInOut)
-                
+//                .transition(.opacity)
+//                .animation(.easeInOut)
+                .font(.subheadline)
             Spacer()
         }
         .frame(maxWidth: .infinity, alignment: .leading)

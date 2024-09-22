@@ -4,7 +4,7 @@
           "alterOptions": [],
           "customType": "",
           "dropDownLabel": "",
-          "errorMessage": "",
+          "errorMessage": "This field is required.",
           "fieldID": "eventTitle",
           "initialState": "",
           "label": "Event Title",
@@ -53,6 +53,21 @@
               "allowedMimeTypes": [],
               "isOptional": false,
               "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+          }
+      },
+      {
+          "alterOptions": [],
+          "customType": "",
+          "dropDownLabel": "",
+          "errorMessage": "This field is required.",
+          "fieldID": "image",
+          "initialState": "",
+          "label": "Upload image",
+          "rules": [],
+          "type": "image",
+          "validation": {
+              "allowedMimeTypes": [],
+              "isOptional": false
           }
       },
       {
@@ -382,7 +397,7 @@
       },
       {
           "alterOptions": [],
-          "customType": "radio",
+          "customType": "",
           "dropDownLabel": "",
           "errorMessage": "",
           "fieldID": "eventType",
@@ -393,7 +408,7 @@
               "External Event"
           ],
           "rules": [],
-          "type": "custom",
+          "type": "radio",
           "validation": {
               "allowedMimeTypes": [],
               "isOptional": false

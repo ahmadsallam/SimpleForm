@@ -12,6 +12,8 @@ struct DateFieldView: View {
     var label: String
     @Binding var isEnabled: Bool
     @Binding var isHidden: Bool
+    var isValid: Bool
+    var errorMessage: String
     
     // Date formatter for displaying date in TextField
     private var dateFormatter: DateFormatter {
@@ -30,7 +32,7 @@ struct DateFieldView: View {
             )
             .padding(10.0)
             .disabled(!isEnabled)
-            .applyDisabledStyle(isEnabled: isEnabled)
+            .applyOutlinedStyle(isEnabled: isEnabled, isValid: true)
         }
     }
 }

@@ -13,14 +13,24 @@ struct TextFieldView: View {
     var label: String
     @Binding var isEnabled: Bool
     @Binding var isHidden: Bool
+    var isValid: Bool
+    var errorMessage: String
     
-
+    var keyboardType: String
+    
     var body: some View {
         if !isHidden {
-            TextField(label, text: $value)
-                .disabled(!isEnabled)
-                .padding()
-                .applyDisabledStyle(isEnabled: isEnabled)
+            VStack(alignment: .leading, spacing: 8, content: {
+                TextField(label, text: $value)
+                    .keyboardType(keyboardType == "Number" ? .numberPad : .default)
+                    .disabled(!isEnabled)
+                    .padding()
+                    .applyOutlinedStyle(isEnabled: isEnabled, isValid: isValid)
+                
+                if !isValid {
+                    ErrorMessageView(message: "This field is required.")
+                }
+            })
         }
     }
 }

@@ -30,15 +30,15 @@ public class FormModel: ObservableObject {
         return dateFormatter.string(from: date)
     }
     
-    func validate() -> Bool {
-//        for field in fields {
-//            if let rules = field.validationRules, rules.contains("required") {
-//                if let value = field.value.value as? String, value.isEmpty {
-//                    return false
-//                }
-//            }
-//        }
-        return true
+    func applayValidation() {
+        var isValid = false
+        for (index, field) in fields.enumerated() {
+            if let validationModel = field.validation {
+                let validate = RuleValidator.validate(field: field)
+                fields[index].isValid(validate.isValid)
+                self.applyBusinessRules()
+            }
+        }
     }
 
     func applyBusinessRules() {
@@ -54,7 +54,6 @@ public class FormModel: ObservableObject {
                             let dependentValue = dependentField.value?.value ?? ""
                             let isValid = evaluateCondition(rule, dependentValue: dependentValue, field: field)
                             performRuleAction(isValid:isValid, actions: rule.actions, field: field)
-                            
                         }
                     }
                 }
@@ -64,27 +63,25 @@ public class FormModel: ObservableObject {
 
     // MARK: Step one Evaluate Condition
     func evaluateCondition(_ rule: Rule, dependentValue: Any, field: FormField) -> Bool {
-        guard let condition = rule.condition else {return true}
+        guard let condition = rule.condition,
+              let operatorType = condition.conditionOperator
+        else {return true}
+
         switch condition.type {
         case .stringLength:
             if let conditionValue = Int((condition.value?.value as? String) ?? ""),
-               let dependentIntValue = (dependentValue as? String)?.count,
-               let operatorType = condition.conditionOperator {
+               let dependentIntValue = (dependentValue as? String)?.count {
                 let isValid = evaluateRuleOperator(lhs: dependentIntValue, rhs: conditionValue, operatorType: operatorType)
                 return isValid
             }
         case .numeric:
-            if let conditionValue = condition.value?.value as? String,
-               let dependentStringValue = dependentValue as? String {
-                return dependentStringValue == conditionValue
-            }
-            if let conditionValue = condition.value?.value as? Int,
-               let dependentIntValue = dependentValue as? Int {
-                return dependentIntValue == conditionValue
+            if let conditionValue = Int(condition.value?.value as? String ?? ""),
+               let dependentIntValue = Int((dependentValue as? String) ?? "") {
+                let isValid = evaluateRuleOperator(lhs: dependentIntValue, rhs: conditionValue, operatorType: operatorType)
+                return isValid
             }
         case .dropDownDependency:
             if let dependentValue = dependentValue as? String,
-               let operatorType = condition.conditionOperator,
                let alterOptions = field.alterOptions {
                 var isValid = false
                 _ = alterOptions.map { model in
@@ -100,16 +97,14 @@ public class FormModel: ObservableObject {
             }
         case .string:
             if let conditionValue = condition.value?.value as? String,
-               let dependentValue = dependentValue as? String,
-               let operatorType = condition.conditionOperator {
+               let dependentValue = dependentValue as? String {
                 let isValid = evaluateRuleOperator(lhs: dependentValue, rhs: conditionValue, operatorType: operatorType)
                 return isValid
             }
             
         case .date:
             if let conditionDate = condition.value?.value as? String,
-               let dependentDate = dependentValue as? Date,
-               let operatorType = condition.conditionOperator {
+               let dependentDate = dependentValue as? Date{
                 let dependentDateString = formattedDate(dependentDate)
                 let isValid = evaluateRuleOperator(lhs: dependentDateString, rhs: conditionDate, operatorType: operatorType)
                 return isValid
@@ -118,20 +113,6 @@ public class FormModel: ObservableObject {
             return false
         }
         return false
-    }
-    
-    func resetDependentChileds(filedId: String) {
-        for (index, field) in fields.enumerated() {
-            
-            _ = field.rules?.filter {$0.condition?.dependsOn == filedId}.map {model in
-                fields[index].setNewValue(newValue: AnyCodable(field.dropDownLabel ?? ""))
-                resetDependentChileds(filedId: fields[index].fieldID ?? "")
-                
-            }
-        }
-    }
-
-    func evaluateDropDownDependencyRule(filed: FormField, dependentValue: String, operatorType: RuleOprators) {
     }
 
     //MARK: Step two Evaluate Rule Operator
@@ -180,22 +161,14 @@ public class FormModel: ObservableObject {
             }
         }
     }
-
-//    func applyBusinessRules() {
-//        for field in fields {
-//            guard let rules = field.businessRules else { continue }
-//            for rule in rules {
-//                if rule.condition == "isChecked" && rule.action == "enable" {
-//                    if let checkboxField = fields.first(where: { $0.label == field.label }),
-//                       let targetIndex = fields.firstIndex(where: { $0.label == rule.targetField }),
-//                       let isChecked = checkboxField.value.value as? Bool {
-//                        fields[targetIndex].enabled = isChecked
-//                        isOn = isChecked
-//                    }
-//                }
-//                
-//                
-//            }
-//        }
-//    }
+    
+    func resetDependentChileds(filedId: String) {
+        for (index, field) in fields.enumerated() {
+            
+            _ = field.rules?.filter {$0.condition?.dependsOn == filedId}.map {model in
+                fields[index].setNewValue(newValue: nil)
+                resetDependentChileds(filedId: fields[index].fieldID ?? "")
+            }
+        }
+    }
 }
