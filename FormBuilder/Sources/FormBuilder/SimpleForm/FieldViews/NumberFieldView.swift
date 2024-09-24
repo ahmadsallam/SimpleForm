@@ -15,13 +15,24 @@ struct NumberFieldView: View {
     @Binding var isHidden: Bool
     var isValid: Bool
     var errorMessage: String
-
+    
+    var onChange: () -> Void
+    
     var body: some View {
-        TextField(label, text: $value)
-            .keyboardType(.numberPad)
-            .disabled(!isEnabled)
-            .padding()
-            .applyOutlinedStyle(isEnabled: isEnabled, isValid: isValid)
+        VStack(alignment: .leading, spacing: 8, content: {
+            TextField(label, text: $value)
+                .keyboardType(.numberPad)
+                .disabled(!isEnabled)
+                .padding()
+                .applyOutlinedStyle(isEnabled: isEnabled, isValid: isValid)
+                .onChange(of: value, perform: { value in
+                    onChange()
+                })
+            
+            if !isValid {
+                ErrorMessageView(message: errorMessage)
+            }
+        })
     }
 }
 

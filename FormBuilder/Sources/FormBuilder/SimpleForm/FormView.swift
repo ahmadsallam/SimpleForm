@@ -25,14 +25,14 @@ struct FormView: View {
             ForEach($formModel.fields, id: \.id) { $field in
                 
                 switch field.type {
+                    
                 case .text:
                     TextFieldView(
                         value: Binding(
                             get: { ((field.value?.value ?? "") as? String) ?? "" },
                             set: { newValue in
                                 field.setNewValue(newValue: AnyCodable(newValue))
-                                formModel.resetDependentChileds(filedId: field.fieldID ?? "")
-                                formModel.applyBusinessRules() } ),
+                                formModel.applyBusinessRules() }),
                         label: field.label ?? "",
                         isEnabled: Binding(get: {field.enabled ?? true},
                                            set: { newValue in field.enable(newValue: newValue)}),
@@ -40,7 +40,11 @@ struct FormView: View {
                                           set: { newValue in field.hide(newValue: newValue)}),
                         isValid: field.isValid ?? true,
                         errorMessage: field.errorMessage ?? "",
-                        keyboardType: field.style?.keyboardType ?? ""
+                        keyboardType: field.style?.keyboardType ?? "",
+                        onChange: {
+                            let validation = RuleValidator.validate(field: field)
+                            field.isValid(validation.isValid)
+                        }
                     )
 
                 case .number:
@@ -58,7 +62,11 @@ struct FormView: View {
                         isHidden: Binding(get: {field.isHidden ?? false},
                                           set: { newValue in field.hide(newValue: newValue)}),
                         isValid: field.isValid ?? true,
-                        errorMessage: field.errorMessage ?? "")
+                        errorMessage: field.errorMessage ?? "",
+                        onChange: {
+                            let validation = RuleValidator.validate(field: field)
+                            field.isValid(validation.isValid)
+                        })
                     
                 case .dropdown:
                     DropdownFieldView(
@@ -125,7 +133,7 @@ struct FormView: View {
                     
                 case .multiSelection:
                     MultiSelectView(selectedOption: Binding(
-                        get: { field.value?.value as? String ?? (field.dropDownLabel ?? "") },
+                        get: { field.value?.value as? String ?? (field.label ?? "") },
                         set: { newValue in
                             field.setNewValue(newValue: AnyCodable(newValue))
                             formModel.applyBusinessRules() }),
@@ -150,12 +158,13 @@ struct FormView: View {
                                           set: { newValue in field.hide(newValue: newValue)}))
                     
                 case .switch:
-                    VStack {
-                        Toggle(isOn: Binding(get: {field.enabled ?? true},
-                                             set: { newValue in field.enable(newValue: newValue)})) {
-                            Text(field.label ?? "")
-                        }
-                    }
+                    SwitchView(
+                        label: field.label ?? "",
+                        options: field.options ?? [],
+                        isEnabled: Binding(get: {field.enabled ?? true},
+                                           set: { newValue in field.enable(newValue: newValue)}),
+                        isHidden: Binding(get: {field.isHidden ?? false},
+                                          set: { newValue in field.hide(newValue: newValue)}))
                     
                 case .unknown, .none:
                     EmptyView()

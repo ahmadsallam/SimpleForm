@@ -23,7 +23,7 @@
           "alterOptions": [],
           "customType": "",
           "dropDownLabel": "",
-          "errorMessage": "",
+          "errorMessage": "The field does not match the required format",
           "fieldID": "email",
           "initialState": "",
           "label": "Email",
@@ -99,7 +99,7 @@
       },
       {
           "alterOptions": [],
-          "customType": "image",
+          "customType": "customTextField",
           "dropDownLabel": "",
           "errorMessage": "",
           "fieldID": "customImage",
@@ -418,7 +418,7 @@
           "alterOptions": [],
           "customType": "",
           "dropDownLabel": "",
-          "errorMessage": "",
+          "errorMessage": "This field is required.",
           "fieldID": "numberOfAttendence",
           "initialState": "",
           "label": "Number of Attendence",
@@ -429,7 +429,7 @@
               "isSingleLine": true,
               "keyboardType": "Number"
           },
-          "type": "text",
+          "type": "number",
           "validation": {
               "allowedMimeTypes": [],
               "isOptional": false
@@ -478,7 +478,7 @@
               "Custom Setting"
           ],
           "rules": [],
-          "type": "custom",
+          "type": "radio",
           "validation": {
               "allowedMimeTypes": [],
               "isOptional": false
@@ -504,7 +504,7 @@
                   "condition": {
                       "dependsOn": "arrangements",
                       "operator": "equalTo",
-                      "type": "showField",
+                      "type": "string",
                       "value": "Standard auditorium"
                   }
               }
@@ -531,7 +531,7 @@
                   "condition": {
                       "dependsOn": "arrangements",
                       "operator": "equalTo",
-                      "type": "showField",
+                      "type": "string",
                       "value": "Workshop layout"
                   }
               }
@@ -558,7 +558,7 @@
                   "condition": {
                       "dependsOn": "arrangements",
                       "operator": "equalTo",
-                      "type": "showField",
+                      "type": "string",
                       "value": "Workshop layout"
                   }
               }
@@ -585,7 +585,7 @@
                   "condition": {
                       "dependsOn": "arrangements",
                       "operator": "equalTo",
-                      "type": "showField",
+                      "type": "string",
                       "value": "MOU Signing Ceremony layout"
                   }
               }
@@ -612,7 +612,7 @@
                   "condition": {
                       "dependsOn": "arrangements",
                       "operator": "equalTo",
-                      "type": "showField",
+                      "type": "string",
                       "value": "MOU Signing Ceremony layout"
                   }
               }
@@ -639,7 +639,7 @@
                   "condition": {
                       "dependsOn": "arrangements",
                       "operator": "equalTo",
-                      "type": "showField",
+                      "type": "string",
                       "value": "Forum Setting"
                   }
               }
@@ -666,7 +666,7 @@
                   "condition": {
                       "dependsOn": "arrangements",
                       "operator": "equalTo",
-                      "type": "",
+                      "type": "string",
                       "value": "Custom Setting"
                   }
               }
@@ -686,7 +686,7 @@
               "VIP Parking"
           ],
           "rules": [],
-          "type": "multiselect"
+          "type": "multiSelection"
       },
       {
           "alterOptions": [],
@@ -697,8 +697,7 @@
           "initialState": "",
           "label": "Additional Remarks",
           "options": [
-              "There will be catering for the event.",
-              "Audio visual assistance is required."
+              "There will be catering for the event."
           ],
           "rules": [],
           "type": "switch"

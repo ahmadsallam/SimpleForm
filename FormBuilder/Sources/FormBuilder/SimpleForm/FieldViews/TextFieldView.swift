@@ -17,6 +17,7 @@ struct TextFieldView: View {
     var errorMessage: String
     
     var keyboardType: String
+    var onChange: () -> Void
     
     var body: some View {
         if !isHidden {
@@ -26,9 +27,12 @@ struct TextFieldView: View {
                     .disabled(!isEnabled)
                     .padding()
                     .applyOutlinedStyle(isEnabled: isEnabled, isValid: isValid)
+                    .onChange(of: value, perform: { value in
+                        onChange()
+                    })
                 
                 if !isValid {
-                    ErrorMessageView(message: "This field is required.")
+                    ErrorMessageView(message: errorMessage)
                 }
             })
         }

@@ -140,6 +140,7 @@ public class FormModel: ObservableObject {
         actions?.forEach { action in
             
             guard let targetFieldID = action.targetField, let targetIndex = fields.firstIndex(where: { $0.fieldID == targetFieldID }) else {return}
+            if !isValid {fields[targetIndex].setNewValue(newValue: nil)}
             switch action.type {
             case .showField:
                 fields[targetIndex].hide(newValue: !isValid)

@@ -7,28 +7,28 @@
 
 import Foundation
 
-struct ValidationModel {
+struct ValidationResult {
     let message: String
     let isValid: Bool
 }
 
 public struct RuleValidator {
     
-    static func validate(field: FormField) -> ValidationModel {
+    static func validate(field: FormField) -> ValidationResult {
         var errors = [String]()
         var isValid = true
-        guard let validation = field.validation else {return ValidationModel(message: "", isValid: true)}
+        guard let validation = field.validation else {return ValidationResult(message: "", isValid: true)}
         
         let value = field.value?.value as? String ?? ""
         
         // Check if the field is optional
         if let isOptional = validation.isOptional, !isOptional && value.isEmpty {
-            return ValidationModel(message: "This field is required.", isValid: false)
+            return ValidationResult(message: "This field is required.", isValid: false)
         }
         
         // Min/Max value validation for numeric input
         if let minValue = field.validation?.min, let fieldValue = Int(value), fieldValue < minValue {
-            return ValidationModel(message: "Value must be greater than or equal to \(minValue).", isValid: false)
+            return ValidationResult(message: "Value must be greater than or equal to \(minValue).", isValid: false)
         }
         
         if let maxValue = field.validation?.max, let fieldValue = Int(value), fieldValue > maxValue {
@@ -43,13 +43,13 @@ public struct RuleValidator {
 //            errors.append("Text must be no more than \(maxLength) characters long.")
 //        }
 //        
-//        // Regex validation
-//        if let regex = field.validation?.regex, !value.isEmpty {
-//            let regexPredicate = NSPredicate(format: "SELF MATCHES %@", regex)
-//            if !regexPredicate.evaluate(with: value) {
-//                errors.append("The field does not match the required format.")
-//            }
-//        }
+        // Regex validation
+        if let regex = field.validation?.regex, !value.isEmpty {
+            let regexPredicate = NSPredicate(format: "SELF MATCHES %@", regex)
+            if !regexPredicate.evaluate(with: value) {
+                return ValidationResult(message: "The field does not match the required format.", isValid: false)
+            }
+        }
 //        
 //        // Date validation (min/max date)
 //        let dateFormatter = DateFormatter()
@@ -82,7 +82,14 @@ public struct RuleValidator {
 //            }
 //        }
         
-        return ValidationModel(message: "", isValid: true)
+        return ValidationResult(message: "", isValid: true)
+    }
+    
+    static func validateRequired(_ value: String) -> ValidationResult {
+        if value.isEmpty {
+            return ValidationResult(message: "This field is required", isValid: false)
+        }
+        return ValidationResult(message: "", isValid: true)
     }
     
     static func greaterThanOrEqual(_ value: Int, minimumValue: Int) -> Bool {
